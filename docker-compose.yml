@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Frontend Web Production Service (Nginx)
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ktun_kariyer_web
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Backend .NET 8 Web API Service
+  api:
+    build:
+      context: ./backend
+      dockerfile: Ktun.CareerPortal.Api/Dockerfile
+    container_name: ktun_kariyer_api
+    ports:
+      - "5000:80"
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=db;Database=KtunCareerPortalDb;User Id=sa;Password=YOUR_SECURE_SQL_PASSWORD_2026;TrustServerCertificate=True;
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # MS SQL Server 2022 Database Service
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: ktun_kariyer_db
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YOUR_SECURE_SQL_PASSWORD_2026
+    volumes:
+      - mssql_data:/var/opt/mssql/data
+    restart: always
+
+volumes:
+  mssql_data:

@@ -1,0 +1,27 @@
+# Dependencies & Local Build Artifacts
+node_modules/
+dist/
+build/
+bin/
+obj/
+
+# Git & Version Control
+.git/
+.gitignore
+
+# Testing & QA Evidence Files
+qa/
+playwright-report/
+test-results/
+coverage/
+
+# Temporary & Environment Secret Files
+.env
+.env.local
+.env.*.local
+*.log
+
+# OS & Editor Metadata
+.DS_Store
+.vscode/
+.idea/

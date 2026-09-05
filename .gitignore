@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Production Builds
+dist/
+build/
+
+# Environment Files & Secrets (CRITICAL SECURITY)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# C# .NET Build Output
+bin/
+obj/
+*.user
+*.userosscache
+*.sln.docstates
+
+# IDE & Editor Directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Temporary Files
+.DS_Store
+Thumbs.db
+
+# Dynamic Log Files & Temporary Test Outputs
+*.log
+*.zip
+Arşiv.zip
+playwright-report/
+test-results/

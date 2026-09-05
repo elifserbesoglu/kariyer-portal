@@ -1,0 +1,2112 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.5.0_1/bin/node",
+      "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/scenarios.spec.ts"
+    ],
+    "configFile": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/playwright.config.ts",
+    "rootDir": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "qa/playwright/html-report"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "qa/playwright/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "scenarios.spec.ts",
+      "file": "scenarios.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "KTÜN Kariyer Portalı — 30 Comprehensive Enterprise UAT Scenarios",
+          "file": "scenarios.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Scenario 01: Home Page Render & Official Brand Logo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1778,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:24.959Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-0e48a--Render-Official-Brand-Logo-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-0e48a--Render-Official-Brand-Logo-chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-0e48a--Render-Official-Brand-Logo-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-bd42dbffb101f374c2de",
+              "file": "scenarios.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "Scenario 02: Public Navigation — Corporate Pages (About, Mission, Vision)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1818,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:26.916Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-84d68-Pages-About-Mission-Vision--chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-84d68-Pages-About-Mission-Vision--chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-84d68-Pages-About-Mission-Vision--chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-50f96d861da3e9253197",
+              "file": "scenarios.spec.ts",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "Scenario 03: Public Navigation — Job Search & Filter Page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1311,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:28.780Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-aa13e-on-—-Job-Search-Filter-Page-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-aa13e-on-—-Job-Search-Filter-Page-chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-aa13e-on-—-Job-Search-Filter-Page-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-ca6e105f23cabbc43117",
+              "file": "scenarios.spec.ts",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "Scenario 04: Public Navigation — Companies Directory & Detail",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1812,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:30.146Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-0d42c--Companies-Directory-Detail-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-0d42c--Companies-Directory-Detail-chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-0d42c--Companies-Directory-Detail-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-d0825ea24c5ead572b36",
+              "file": "scenarios.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Scenario 05: Public Navigation — Career Counselors Page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1276,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:32.007Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a8ea7-on-—-Career-Counselors-Page-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a8ea7-on-—-Career-Counselors-Page-chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a8ea7-on-—-Career-Counselors-Page-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-cd1278218d03f122a7c0",
+              "file": "scenarios.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "Scenario 06: Public Navigation — Contact & Legal KVKK Pages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1462,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:33.326Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a9c56--—-Contact-Legal-KVKK-Pages-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a9c56--—-Contact-Legal-KVKK-Pages-chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a9c56--—-Contact-Legal-KVKK-Pages-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-09c658759726d3a675d5",
+              "file": "scenarios.spec.ts",
+              "line": 43,
+              "column": 3
+            },
+            {
+              "title": "Scenario 07: Public Visitor Application Triggers Login Required",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6125,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Giriş Yapılması Gerekiyor/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Giriş Yapılması Gerekiyor/i).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Giriş Yapılması Gerekiyor/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Giriş Yapılması Gerekiyor/i).first()\u001b[22m\n\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:59:72",
+                        "location": {
+                          "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                          "column": 72,
+                          "line": 59
+                        },
+                        "snippet": "  57 |     await expect(applyBtn).toBeVisible({ timeout: 5000 });\n  58 |     await applyBtn.click();\n> 59 |     await expect(page.getByText(/Giriş Yapılması Gerekiyor/i).first()).toBeVisible({ timeout: 5000 });\n     |                                                                        ^\n  60 |   });\n  61 |\n  62 |   test('Scenario 08: Register Panel — Student Form Validation & Submission', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 72,
+                            "line": 59
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Giriş Yapılması Gerekiyor/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Giriş Yapılması Gerekiyor/i).first()\u001b[22m\n\n\n  57 |     await expect(applyBtn).toBeVisible({ timeout: 5000 });\n  58 |     await applyBtn.click();\n> 59 |     await expect(page.getByText(/Giriş Yapılması Gerekiyor/i).first()).toBeVisible({ timeout: 5000 });\n     |                                                                        ^\n  60 |   });\n  61 |\n  62 |   test('Scenario 08: Register Panel — Student Form Validation & Submission', async ({ page }) => {\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:59:72"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:34.856Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e289f-ion-Triggers-Login-Required-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e289f-ion-Triggers-Login-Required-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e289f-ion-Triggers-Login-Required-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e289f-ion-Triggers-Login-Required-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                        "column": 72,
+                        "line": 59
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-a0617b7a6e65b5211fa7",
+              "file": "scenarios.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "Scenario 08: Register Panel — Student Form Validation & Submission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2322,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:41.515Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ee9e0--Form-Validation-Submission-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ee9e0--Form-Validation-Submission-chromium/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ee9e0--Form-Validation-Submission-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-9a843ee1482e4ac6dbcb",
+              "file": "scenarios.spec.ts",
+              "line": 62,
+              "column": 3
+            },
+            {
+              "title": "Scenario 09: Register Panel — Employer Form Validation & VKN Verification",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 838820,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 69,
+                            "line": 94
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[placeholder=\"Örnek Teknoloji A.Ş.\"]')\u001b[22m\n\n\n  92 |     await employerTabBtn.click();\n  93 |\n> 94 |     await page.locator('input[placeholder=\"Örnek Teknoloji A.Ş.\"]').fill('Yeni Teknoloji A.Ş.');\n     |                                                                     ^\n  95 |     await page.locator('input[placeholder=\"10 Haneli Vergi Kimlik No\"]').fill('9876543210');\n  96 |     await page.locator('input[placeholder=\"ör. Meram V.D.\"]').fill('Selçuklu V.D.');\n  97 |     await page.locator('input[placeholder=\"Ad Soyad...\"]').fill('Ahmet Yılmaz');\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:94:69"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:09:44.080Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-babde-Validation-VKN-Verification-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-babde-Validation-VKN-Verification-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-babde-Validation-VKN-Verification-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-babde-Validation-VKN-Verification-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-0f179d8e81abee848034",
+              "file": "scenarios.spec.ts",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "Scenario 10: Forgot Password Modal Flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30462,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 21,
+                            "line": 113
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Şifrenizi mi unuttunuz?', exact: true })\u001b[22m\n\n\n  111 |\n  112 |     const forgotBtn = page.getByRole('button', { name: 'Şifrenizi mi unuttunuz?', exact: true });\n> 113 |     await forgotBtn.click();\n      |                     ^\n  114 |     await expect(page.getByText(/Şifre Sıfırlama Bağlantısı Gönder/i).first()).toBeVisible({ timeout: 5000 });\n  115 |   });\n  116 |\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:113:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:23:44.363Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-51582--Forgot-Password-Modal-Flow-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-51582--Forgot-Password-Modal-Flow-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-51582--Forgot-Password-Modal-Flow-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-51582--Forgot-Password-Modal-Flow-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-c79696c056168af7b793",
+              "file": "scenarios.spec.ts",
+              "line": 107,
+              "column": 3
+            },
+            {
+              "title": "Scenario 11: Student Role Application Modal & Submission",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5497,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Hemen Başvur', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Hemen Başvur', exact: true })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Hemen Başvur', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Hemen Başvur', exact: true })\u001b[22m\n\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:135:28",
+                        "location": {
+                          "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                          "column": 28,
+                          "line": 135
+                        },
+                        "snippet": "  133 |     await page.goto('/#/job-detail');\n  134 |     const applyBtn = page.getByRole('button', { name: 'Hemen Başvur', exact: true });\n> 135 |     await expect(applyBtn).toBeVisible({ timeout: 5000 });\n      |                            ^\n  136 |     await applyBtn.click();\n  137 |\n  138 |     await expect(page.getByText(/İş Başvurusu Gönder/i).first()).toBeVisible({ timeout: 5000 });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 28,
+                            "line": 135
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Hemen Başvur', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Hemen Başvur', exact: true })\u001b[22m\n\n\n  133 |     await page.goto('/#/job-detail');\n  134 |     const applyBtn = page.getByRole('button', { name: 'Hemen Başvur', exact: true });\n> 135 |     await expect(applyBtn).toBeVisible({ timeout: 5000 });\n      |                            ^\n  136 |     await applyBtn.click();\n  137 |\n  138 |     await expect(page.getByText(/İş Başvurusu Gönder/i).first()).toBeVisible({ timeout: 5000 });\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:135:28"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:24:15.562Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-4281a-pplication-Modal-Submission-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-4281a-pplication-Modal-Submission-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-4281a-pplication-Modal-Submission-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-4281a-pplication-Modal-Submission-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                        "column": 28,
+                        "line": 135
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-f298f7517154e55bef1e",
+              "file": "scenarios.spec.ts",
+              "line": 121,
+              "column": 3
+            },
+            {
+              "title": "Scenario 12: Student CV Builder — Manual Save Action & Feedback",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31487,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 158
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  156 |     await page.goto('/');\n  157 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 158 |     await dashboardBtn.click();\n      |                        ^\n  159 |\n  160 |     const saveCvBtn = page.getByRole('button', { name: 'CV Kaydet', exact: true });\n  161 |     await expect(saveCvBtn).toBeVisible({ timeout: 5000 });\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:158:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:24:21.561Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-1d4ae-Manual-Save-Action-Feedback-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-1d4ae-Manual-Save-Action-Feedback-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-1d4ae-Manual-Save-Action-Feedback-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-1d4ae-Manual-Save-Action-Feedback-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-9cafdf391b59a2d90723",
+              "file": "scenarios.spec.ts",
+              "line": 144,
+              "column": 3
+            },
+            {
+              "title": "Scenario 13: Student CV Builder — Live CV Preview Modal",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31242,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 180
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  178 |     await page.goto('/');\n  179 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 180 |     await dashboardBtn.click();\n      |                        ^\n  181 |\n  182 |     const previewCvBtn = page.getByRole('button', { name: 'CV Önizle', exact: true });\n  183 |     await expect(previewCvBtn).toBeVisible({ timeout: 5000 });\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:180:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:24:53.606Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-82752-der-—-Live-CV-Preview-Modal-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-82752-der-—-Live-CV-Preview-Modal-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-82752-der-—-Live-CV-Preview-Modal-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-82752-der-—-Live-CV-Preview-Modal-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-2b61b2e9c291d50811c1",
+              "file": "scenarios.spec.ts",
+              "line": 166,
+              "column": 3
+            },
+            {
+              "title": "Scenario 14: Student Counselor Appointment Booking",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31509,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 26,
+                            "line": 202
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Randevu Al', exact: true }).first()\u001b[22m\n\n\n  200 |     await page.goto('/#/counselors');\n  201 |     const appointmentBtn = page.getByRole('button', { name: 'Randevu Al', exact: true }).first();\n> 202 |     await appointmentBtn.click();\n      |                          ^\n  203 |\n  204 |     const submitAppointmentBtn = page.getByRole('button', { name: 'Randevu Talebini Gönder', exact: true });\n  205 |     await submitAppointmentBtn.click({ noWaitAfter: true });\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:202:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:25:25.438Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-f8911-unselor-Appointment-Booking-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-f8911-unselor-Appointment-Booking-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-f8911-unselor-Appointment-Booking-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-f8911-unselor-Appointment-Booking-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-19fe53106264e7c6ef60",
+              "file": "scenarios.spec.ts",
+              "line": 188,
+              "column": 3
+            },
+            {
+              "title": "Scenario 15: Student Applications List Verification",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31286,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 223
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  221 |     await page.goto('/');\n  222 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 223 |     await dashboardBtn.click();\n      |                        ^\n  224 |\n  225 |     const appsTab = page.getByRole('button', { name: /Başvurularım/i }).first();\n  226 |     await appsTab.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:223:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:25:57.461Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-b62b2-lications-List-Verification-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-b62b2-lications-List-Verification-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-b62b2-lications-List-Verification-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-b62b2-lications-List-Verification-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-f55ce73dea69b52464c2",
+              "file": "scenarios.spec.ts",
+              "line": 209,
+              "column": 3
+            },
+            {
+              "title": "Scenario 16: Alumni Role Job Application Flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5633,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Hemen Başvur', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Hemen Başvur', exact: true })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Hemen Başvur', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Hemen Başvur', exact: true })\u001b[22m\n\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:248:28",
+                        "location": {
+                          "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                          "column": 28,
+                          "line": 248
+                        },
+                        "snippet": "  246 |     await page.goto('/#/job-detail');\n  247 |     const applyBtn = page.getByRole('button', { name: 'Hemen Başvur', exact: true });\n> 248 |     await expect(applyBtn).toBeVisible({ timeout: 5000 });\n      |                            ^\n  249 |   });\n  250 |\n  251 |   test('Scenario 17: Alumni Mentorship Platform Access', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 28,
+                            "line": 248
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Hemen Başvur', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Hemen Başvur', exact: true })\u001b[22m\n\n\n  246 |     await page.goto('/#/job-detail');\n  247 |     const applyBtn = page.getByRole('button', { name: 'Hemen Başvur', exact: true });\n> 248 |     await expect(applyBtn).toBeVisible({ timeout: 5000 });\n      |                            ^\n  249 |   });\n  250 |\n  251 |   test('Scenario 17: Alumni Mentorship Platform Access', async ({ page }) => {\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:248:28"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:26:29.292Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-75f94-i-Role-Job-Application-Flow-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-75f94-i-Role-Job-Application-Flow-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-75f94-i-Role-Job-Application-Flow-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-75f94-i-Role-Job-Application-Flow-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                        "column": 28,
+                        "line": 248
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-e5fe757f788dba7e02ee",
+              "file": "scenarios.spec.ts",
+              "line": 234,
+              "column": 3
+            },
+            {
+              "title": "Scenario 17: Alumni Mentorship Platform Access",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5610,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Mezun Mentörlük Programı/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Mezun Mentörlük Programı/i).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Mezun Mentörlük Programı/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Mezun Mentörlük Programı/i).first()\u001b[22m\n\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:264:71",
+                        "location": {
+                          "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                          "column": 71,
+                          "line": 264
+                        },
+                        "snippet": "  262 |\n  263 |     await page.goto('/#/counselors');\n> 264 |     await expect(page.getByText(/Mezun Mentörlük Programı/i).first()).toBeVisible({ timeout: 5000 });\n      |                                                                       ^\n  265 |   });\n  266 |\n  267 |   test('Scenario 18: Alumni Dashboard Access', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 71,
+                            "line": 264
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Mezun Mentörlük Programı/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Mezun Mentörlük Programı/i).first()\u001b[22m\n\n\n  262 |\n  263 |     await page.goto('/#/counselors');\n> 264 |     await expect(page.getByText(/Mezun Mentörlük Programı/i).first()).toBeVisible({ timeout: 5000 });\n      |                                                                       ^\n  265 |   });\n  266 |\n  267 |   test('Scenario 18: Alumni Dashboard Access', async ({ page }) => {\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:264:71"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:26:35.411Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-8c920--Mentorship-Platform-Access-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-8c920--Mentorship-Platform-Access-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-8c920--Mentorship-Platform-Access-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-8c920--Mentorship-Platform-Access-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                        "column": 71,
+                        "line": 264
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-bfe9e270374f21ab6d95",
+              "file": "scenarios.spec.ts",
+              "line": 251,
+              "column": 3
+            },
+            {
+              "title": "Scenario 18: Alumni Dashboard Access",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31511,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 281
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  279 |     await page.goto('/');\n  280 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 281 |     await dashboardBtn.click();\n      |                        ^\n  282 |     await expect(page.getByText(/Zeynep Yılmaz/i).first()).toBeVisible({ timeout: 5000 });\n  283 |   });\n  284 |\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:281:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:26:41.511Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ce20e--18-Alumni-Dashboard-Access-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ce20e--18-Alumni-Dashboard-Access-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ce20e--18-Alumni-Dashboard-Access-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ce20e--18-Alumni-Dashboard-Access-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-149f0be334ba09dd2d5d",
+              "file": "scenarios.spec.ts",
+              "line": 267,
+              "column": 3
+            },
+            {
+              "title": "Scenario 19: Employer Application Blocking & Governance Alert",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5659,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()\u001b[22m\n\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:306:87",
+                        "location": {
+                          "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                          "column": 87,
+                          "line": 306
+                        },
+                        "snippet": "  304 |     const applyBtn = page.getByRole('button', { name: 'Hemen Başvur', exact: true });\n  305 |     await expect(applyBtn).toHaveCount(0);\n> 306 |     await expect(page.getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()).toBeVisible({ timeout: 5000 });\n      |                                                                                       ^\n  307 |   });\n  308 |\n  309 |   test('Scenario 20: Employer ATS Kanban Dashboard', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 87,
+                            "line": 306
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()\u001b[22m\n\n\n  304 |     const applyBtn = page.getByRole('button', { name: 'Hemen Başvur', exact: true });\n  305 |     await expect(applyBtn).toHaveCount(0);\n> 306 |     await expect(page.getByText(/Bu hesap türü kurumsal işveren hesabıdır/i).first()).toBeVisible({ timeout: 5000 });\n      |                                                                                       ^\n  307 |   });\n  308 |\n  309 |   test('Scenario 20: Employer ATS Kanban Dashboard', async ({ page }) => {\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:306:87"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:27:13.508Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-48ef6-n-Blocking-Governance-Alert-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-48ef6-n-Blocking-Governance-Alert-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-48ef6-n-Blocking-Governance-Alert-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-48ef6-n-Blocking-Governance-Alert-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                        "column": 87,
+                        "line": 306
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-9e017ef588dc1ca44578",
+              "file": "scenarios.spec.ts",
+              "line": 289,
+              "column": 3
+            },
+            {
+              "title": "Scenario 20: Employer ATS Kanban Dashboard",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31500,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 324
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  322 |     await page.goto('/');\n  323 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 324 |     await dashboardBtn.click();\n      |                        ^\n  325 |     await expect(page.getByText(/ATS İşe Alım Panosu/i).first()).toBeVisible({ timeout: 5000 });\n  326 |   });\n  327 |\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:324:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:27:19.665Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-01b52-ployer-ATS-Kanban-Dashboard-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-01b52-ployer-ATS-Kanban-Dashboard-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-01b52-ployer-ATS-Kanban-Dashboard-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-01b52-ployer-ATS-Kanban-Dashboard-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-5eecc1d46684a242e74f",
+              "file": "scenarios.spec.ts",
+              "line": 309,
+              "column": 3
+            },
+            {
+              "title": "Scenario 21: Employer Job Creation Wizard Launch",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31097,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 343
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  341 |     await page.goto('/');\n  342 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 343 |     await dashboardBtn.click();\n      |                        ^\n  344 |\n  345 |     const createJobBtn = page.getByRole('button', { name: /Yeni İlan Oluştur/i }).first();\n  346 |     await createJobBtn.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:343:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:27:51.654Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-d435e--Job-Creation-Wizard-Launch-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-d435e--Job-Creation-Wizard-Launch-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-d435e--Job-Creation-Wizard-Launch-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-d435e--Job-Creation-Wizard-Launch-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-a3436287f1dbb7446f11",
+              "file": "scenarios.spec.ts",
+              "line": 328,
+              "column": 3
+            },
+            {
+              "title": "Scenario 22: Employer Bulk Candidate Email Modal",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31520,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 365
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  363 |     await page.goto('/');\n  364 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 365 |     await dashboardBtn.click();\n      |                        ^\n  366 |\n  367 |     const bulkMailBtn = page.getByRole('button', { name: /Toplu E-Posta/i }).first();\n  368 |     await bulkMailBtn.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:365:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:28:23.288Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-2711f--Bulk-Candidate-Email-Modal-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-2711f--Bulk-Candidate-Email-Modal-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-2711f--Bulk-Candidate-Email-Modal-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-2711f--Bulk-Candidate-Email-Modal-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-14b840ca108a9296f1cb",
+              "file": "scenarios.spec.ts",
+              "line": 350,
+              "column": 3
+            },
+            {
+              "title": "Scenario 23: Career Center Cockpit Launch & Header Banner",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31217,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 390
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  388 |     await page.goto('/');\n  389 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 390 |     await dashboardBtn.click();\n      |                        ^\n  391 |\n  392 |     await expect(page.getByText(/KTÜN Kariyer Gelişim ve Mezun İzleme Merkezi/i).first()).toBeVisible({ timeout: 5000 });\n  393 |   });\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:390:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:28:55.320Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a6ef8-ockpit-Launch-Header-Banner-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a6ef8-ockpit-Launch-Header-Banner-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a6ef8-ockpit-Launch-Header-Banner-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a6ef8-ockpit-Launch-Header-Banner-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-8ccbb734451e354756fc",
+              "file": "scenarios.spec.ts",
+              "line": 376,
+              "column": 3
+            },
+            {
+              "title": "Scenario 24: Career Center — Company Approval & VKN Review Screen",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31525,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 409
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  407 |     await page.goto('/');\n  408 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 409 |     await dashboardBtn.click();\n      |                        ^\n  410 |\n  411 |     const reviewBtn = page.getByRole('button', { name: /Firma Detayını Gör/i }).first();\n  412 |     await reviewBtn.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:409:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:29:27.102Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e40f0--Approval-VKN-Review-Screen-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e40f0--Approval-VKN-Review-Screen-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e40f0--Approval-VKN-Review-Screen-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-e40f0--Approval-VKN-Review-Screen-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-0614d4099f9669344699",
+              "file": "scenarios.spec.ts",
+              "line": 395,
+              "column": 3
+            },
+            {
+              "title": "Scenario 25: Career Center — Counseling Pool & Appointment Approval",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 528934,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 434
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  432 |     await page.goto('/');\n  433 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 434 |     await dashboardBtn.click();\n      |                        ^\n  435 |\n  436 |     const counselingTab = page.getByRole('button', { name: 'Danışmanlık', exact: true });\n  437 |     await counselingTab.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:434:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:29:59.126Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-33f91-g-Pool-Appointment-Approval-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-33f91-g-Pool-Appointment-Approval-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-33f91-g-Pool-Appointment-Approval-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-33f91-g-Pool-Appointment-Approval-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-ea5d330d64eacdedf5e5",
+              "file": "scenarios.spec.ts",
+              "line": 420,
+              "column": 3
+            },
+            {
+              "title": "Scenario 26: Career Center — Analytics & Report Export (PDF, Excel, CSV)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 504552,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 462
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  460 |     await page.goto('/');\n  461 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 462 |     await dashboardBtn.click();\n      |                        ^\n  463 |\n  464 |     const analyticsTab = page.getByRole('button', { name: 'Analitik', exact: true });\n  465 |     await analyticsTab.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:462:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:38:48.960Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ec08e-eport-Export-PDF-Excel-CSV--chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ec08e-eport-Export-PDF-Excel-CSV--chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ec08e-eport-Export-PDF-Excel-CSV--chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-ec08e-eport-Export-PDF-Excel-CSV--chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-b68a78e3082e664c9fc4",
+              "file": "scenarios.spec.ts",
+              "line": 448,
+              "column": 3
+            },
+            {
+              "title": "Scenario 27: Admin User Management — Edit User & Role Change",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31082,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 490
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  488 |     await page.goto('/');\n  489 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 490 |     await dashboardBtn.click();\n      |                        ^\n  491 |\n  492 |     const usersTab = page.getByRole('button', { name: 'Kullanıcı Yönetimi', exact: true });\n  493 |     await usersTab.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:490:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:47:14.373Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-76226-ent-—-Edit-User-Role-Change-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-76226-ent-—-Edit-User-Role-Change-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-76226-ent-—-Edit-User-Role-Change-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-76226-ent-—-Edit-User-Role-Change-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-598fc11c9594835edd67",
+              "file": "scenarios.spec.ts",
+              "line": 476,
+              "column": 3
+            },
+            {
+              "title": "Scenario 28: Admin System Settings — Save & Redis Cache Flush",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/elifserbesoglu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/bj/l22qf_3j11lb9qy71kr1n_cw0000gn/T/playwright_chromiumdev_profile-VbHkkW --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=22322\u001b[22m\n",
+                        "stack": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/elifserbesoglu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/bj/l22qf_3j11lb9qy71kr1n_cw0000gn/T/playwright_chromiumdev_profile-VbHkkW --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=22322\u001b[22m\n"
+                      },
+                      "errors": [
+                        {
+                          "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/elifserbesoglu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/bj/l22qf_3j11lb9qy71kr1n_cw0000gn/T/playwright_chromiumdev_profile-VbHkkW --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=22322\u001b[22m\n"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:47:45.961Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-2852c-gs-—-Save-Redis-Cache-Flush-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-2852c-gs-—-Save-Redis-Cache-Flush-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-771866712ffb7067bdfd",
+              "file": "scenarios.spec.ts",
+              "line": 504,
+              "column": 3
+            },
+            {
+              "title": "Scenario 29: Admin RBAC Permission Matrix Verification",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 522166,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 542
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  540 |     await page.goto('/');\n  541 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 542 |     await dashboardBtn.click();\n      |                        ^\n  543 |\n  544 |     const rbacTab = page.getByRole('button', { name: 'Rol & RBAC Matrisi', exact: true });\n  545 |     await rbacTab.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:542:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T16:55:45.953Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-68159-mission-Matrix-Verification-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-68159-mission-Matrix-Verification-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-68159-mission-Matrix-Verification-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-68159-mission-Matrix-Verification-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-4041ceb4a77017b9706e",
+              "file": "scenarios.spec.ts",
+              "line": 528,
+              "column": 3
+            },
+            {
+              "title": "Scenario 30: Admin Categorized Audit Log Viewer",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 510360,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts",
+                            "column": 24,
+                            "line": 563
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first()\u001b[22m\n\n\n  561 |     await page.goto('/');\n  562 |     const dashboardBtn = page.getByRole('button', { name: /Panetime Git|Rol Panelime Geç/i }).first();\n> 563 |     await dashboardBtn.click();\n      |                        ^\n  564 |\n  565 |     const logsTab = page.getByRole('button', { name: 'Audit Logs', exact: true });\n  566 |     await logsTab.click();\n    at /Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/tests/e2e/scenarios.spec.ts:563:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-07T17:04:28.901Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a0e1d-ategorized-Audit-Log-Viewer-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a0e1d-ategorized-Audit-Log-Viewer-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a0e1d-ategorized-Audit-Log-Viewer-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/elifserbesoglu/.gemini/antigravity/scratch/ktun-kariyer-portal/qa/playwright/artifacts/scenarios-KTÜN-Kariyer-Por-a0e1d-ategorized-Audit-Log-Viewer-chromium/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "228c869e2a0e583b8177-799b513bdafdee3b5403",
+              "file": "scenarios.spec.ts",
+              "line": 549,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-07T16:09:24.481Z",
+    "duration": 3815365.831,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 23,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "categories": {
+    "performance": {
+      "score": 0.98,
+      "title": "Performance"
+    },
+    "accessibility": {
+      "score": 1,
+      "title": "Accessibility"
+    },
+    "bestPractices": {
+      "score": 1,
+      "title": "Best Practices"
+    },
+    "seo": {
+      "score": 1,
+      "title": "SEO"
+    }
+  },
+  "audits": {
+    "first-contentful-paint": {
+      "score": 1,
+      "numericValue": 416,
+      "displayValue": "416 ms"
+    },
+    "dom-content-loaded": {
+      "score": 1,
+      "numericValue": 243,
+      "displayValue": "243 ms"
+    }
+  },
+  "timing": {
+    "dnsLookupMs": 0,
+    "tcpConnectMs": 0,
+    "requestToResponseMs": 3,
+    "domContentLoadedMs": 243,
+    "domInteractiveMs": 11,
+    "firstContentfulPaintMs": 416,
+    "timestamp": "2026-08-05T15:26:13.262Z"
+  }
+}

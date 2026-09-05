@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ktun.CareerPortal.Domain", "Ktun.CareerPortal.Domain\Ktun.CareerPortal.Domain.csproj", "{6304E41C-8386-4285-90D6-05159AE3DB6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ktun.CareerPortal.Infrastructure", "Ktun.CareerPortal.Infrastructure\Ktun.CareerPortal.Infrastructure.csproj", "{262CA570-B684-4124-9806-EC3AE0B8D66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ktun.CareerPortal.Api", "Ktun.CareerPortal.Api\Ktun.CareerPortal.Api.csproj", "{B395FAEB-D756-41E6-8DA5-7EBE9F4FDD64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ktun.CareerPortal.UnitTests", "Ktun.CareerPortal.UnitTests\Ktun.CareerPortal.UnitTests.csproj", "{3EEADE4B-42A0-4AF2-844A-41B44C5C08A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ktun.CareerPortal.IntegrationTests", "Ktun.CareerPortal.IntegrationTests\Ktun.CareerPortal.IntegrationTests.csproj", "{05938982-295D-4804-94EC-021B63A80D5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6304E41C-8386-4285-90D6-05159AE3DB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6304E41C-8386-4285-90D6-05159AE3DB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6304E41C-8386-4285-90D6-05159AE3DB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6304E41C-8386-4285-90D6-05159AE3DB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262CA570-B684-4124-9806-EC3AE0B8D66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262CA570-B684-4124-9806-EC3AE0B8D66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262CA570-B684-4124-9806-EC3AE0B8D66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262CA570-B684-4124-9806-EC3AE0B8D66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B395FAEB-D756-41E6-8DA5-7EBE9F4FDD64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B395FAEB-D756-41E6-8DA5-7EBE9F4FDD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B395FAEB-D756-41E6-8DA5-7EBE9F4FDD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B395FAEB-D756-41E6-8DA5-7EBE9F4FDD64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EEADE4B-42A0-4AF2-844A-41B44C5C08A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EEADE4B-42A0-4AF2-844A-41B44C5C08A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EEADE4B-42A0-4AF2-844A-41B44C5C08A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EEADE4B-42A0-4AF2-844A-41B44C5C08A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05938982-295D-4804-94EC-021B63A80D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05938982-295D-4804-94EC-021B63A80D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05938982-295D-4804-94EC-021B63A80D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05938982-295D-4804-94EC-021B63A80D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

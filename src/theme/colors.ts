@@ -1,0 +1,67 @@
+export const colors = {
+  burgundy: {
+    50: '#FDF2F2',
+    100: '#FBE8E8',
+    200: '#F5C8C8',
+    300: '#EE9898',
+    400: '#E25E5E',
+    500: '#C51E2B',
+    600: '#A71424',
+    700: '#8B0000', // Primary Brand Burgundy
+    800: '#6E0000',
+    900: '#520000',
+    950: '#330000',
+  },
+  navy: {
+    50: '#F0F4F8',
+    100: '#D9E2EC',
+    200: '#BCCCDC',
+    300: '#9FB3C8',
+    400: '#829AB1',
+    500: '#627D98',
+    600: '#486581',
+    700: '#334E68',
+    800: '#102A43',
+    900: '#0B192C', // Institutional Deep Navy (Footer)
+    950: '#060D17',
+  },
+  slate: {
+    50: '#F8FAFC',
+    100: '#F1F5F9',
+    200: '#E2E8F0',
+    300: '#CBD5E1',
+    400: '#94A3B8',
+    500: '#64748B',
+    600: '#475569',
+    700: '#334155',
+    800: '#1E293B',
+    900: '#0F172A',
+    950: '#020617',
+  },
+  status: {
+    success: {
+      light: '#ECFDF5',
+      main: '#10B981',
+      dark: '#047857',
+      text: '#065F46',
+    },
+    warning: {
+      light: '#FFFBEB',
+      main: '#F59E0B',
+      dark: '#B45309',
+      text: '#92400E',
+    },
+    error: {
+      light: '#FEF2F2',
+      main: '#EF4444',
+      dark: '#B91C1C',
+      text: '#991B1B',
+    },
+    info: {
+      light: '#EFF6FF',
+      main: '#3B82F6',
+      dark: '#1D4ED8',
+      text: '#1E40AF',
+    },
+  },
+};
