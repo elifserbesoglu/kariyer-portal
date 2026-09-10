@@ -26,7 +26,7 @@ def run_tests():
         context = browser.new_context(viewport={"width": 1280, "height": 800})
         page = context.new_page()
 
-        # Clear local/session storage at start
+        # Clear storage at start
         page.goto(BASE_URL)
         page.evaluate("() => { localStorage.clear(); sessionStorage.clear(); }")
         page.reload()
@@ -54,7 +54,7 @@ def run_tests():
 
         # Test Kurumsal Mega Menu
         try:
-            kurumsal_btn = page.locator("button:has-text('Kurumsal')").first
+            kurumsal_btn = page.locator("header nav button:has-text('Kurumsal')").first
             kurumsal_btn.hover()
             page.wait_for_selector("text=Misyon & Vizyon", timeout=3000)
             log_result("Public", "Kurumsal Mega Menü", True, "Mega menü açıldı: Misyon & Vizyon ve Mevzuat linkleri görünüyor.")
@@ -63,7 +63,7 @@ def run_tests():
 
         # Test Jobs Page
         try:
-            jobs_btn = page.locator("nav button:has-text('İş / Staj İlanları')").first
+            jobs_btn = page.locator("header nav button:has-text('İş / Staj İlanları')").first
             jobs_btn.click()
             page.wait_for_selector("text=Tüm Kariyer ve Staj Fırsatları", timeout=5000)
             log_result("Public", "İş/Staj İlanları Sayfası", True, "İlanlar listelendi.")
@@ -72,7 +72,7 @@ def run_tests():
 
         # Test Companies Page
         try:
-            comp_btn = page.locator("nav button:has-text('Firmalar')").first
+            comp_btn = page.locator("header nav button:has-text('Firmalar')").first
             comp_btn.click()
             page.wait_for_selector("text=Anlaşmalı ve Paydaş Kurumlar", timeout=5000)
             log_result("Public", "Firmalar Sayfası", True, "Firmalar listesi görüntülendi.")
@@ -81,7 +81,7 @@ def run_tests():
 
         # Test Announcements Page
         try:
-            ann_btn = page.locator("nav button:has-text('Duyurular')").first
+            ann_btn = page.locator("header nav button:has-text('Duyurular')").first
             ann_btn.click()
             page.wait_for_selector("text=Kariyer Merkezi Duyuruları", timeout=5000)
             log_result("Public", "Duyurular Sayfası", True, "Duyurular listesi yüklendi.")
@@ -127,7 +127,7 @@ def run_tests():
 
         # Test Profilim Tab & Photo Upload
         try:
-            page.locator("aside nav button:has-text('Profilim')").click()
+            page.click("aside nav button:has-text('Profilim')")
             page.wait_for_selector("text=Profil Fotoğrafı", timeout=5000)
             log_result("Öğrenci", "Profilim Sekmesi Açılış", True, "Profilim tabına geçildi.")
 
@@ -171,7 +171,7 @@ def run_tests():
 
         # Test Mesajlaşma Tab
         try:
-            page.locator("aside nav button:has-text('Mesajlaşma')").click()
+            page.click("aside nav button:has-text('Mesajlaşma')")
             page.wait_for_selector("text=ASELSAN Konya", timeout=5000)
             chat_input = page.locator("input[placeholder*='Mesaj']").first
             chat_input.fill("Merhaba, staj başvurum hakkında bilgi alabilir miyim?")
@@ -182,7 +182,7 @@ def run_tests():
 
         # Test Mühendislik Portfolyosu (Sertifika Yükleme & PDF)
         try:
-            page.locator("aside nav button:has-text('Mühendislik Portfolyosu')").click()
+            page.click("aside nav button:has-text('Mühendislik Portfolyosu')")
             page.wait_for_selector("text=Sertifikalarım & Belgelerim", timeout=5000)
             cert_download_btn = page.locator("a:has-text('PDF Göster / İndir'), button:has-text('PDF Göster / İndir')").first
             if cert_download_btn.is_visible():
@@ -194,7 +194,7 @@ def run_tests():
 
         # Test Job Application & Non-Duplicate Application Button Lock
         try:
-            jobs_nav = page.locator("nav button:has-text('İş / Staj İlanları')").first
+            jobs_nav = page.locator("header nav button:has-text('İş / Staj İlanları')").first
             jobs_nav.click()
             page.wait_for_selector("text=Tüm Kariyer ve Staj Fırsatları", timeout=5000)
             detail_btns = page.locator("button:has-text('Detayları Gör ve Başvur')")
@@ -234,13 +234,14 @@ def run_tests():
             page.fill("input[placeholder*='20120033001']", "ik@aselsankonya.com.tr")
             page.fill("input[type='password']", "123456")
             page.click("button[type='submit']:has-text('Giriş Yap')")
-            page.wait_for_selector("text=Firma İlanları & Aday Başvuruları", timeout=7000)
+            page.wait_for_selector("text=Firma Paneli", timeout=7000)
             log_result("İşveren", "Oturum Açma", True, "ASELSAN Konya İK olarak başarıyla giriş yapıldı.")
         except Exception as e:
             log_result("İşveren", "Oturum Açma", False, str(e))
 
         # Test Simplified ATS Acceptance (İşe Alındı / Reddedildi)
         try:
+            page.wait_for_selector("select", timeout=5000)
             status_select = page.locator("select").first
             status_select.select_option(value="İşe Alındı")
             time.sleep(0.5)
@@ -255,7 +256,7 @@ def run_tests():
         # Test Employer Create Job
         try:
             page.click("button:has-text('🏢 İşveren Paneli')")
-            page.wait_for_selector("text=Firma İlanları & Aday Başvuruları", timeout=5000)
+            page.wait_for_selector("text=Firma Paneli", timeout=5000)
             log_result("İşveren", "Firma Paneli", True, "İşveren paneli yüklendi.")
         except Exception as e:
             log_result("İşveren", "Firma Paneli", False, str(e))
@@ -295,7 +296,8 @@ def run_tests():
         # ==========================================
         print("\n--- 5. SİSTEM TEMİZLİĞİ & VERSİYON YAZISI KONTROLÜ ---")
         try:
-            footer_text = page.locator("footer").inner_text() if page.locator("footer").count() > 0 else ""
+            footer_el = page.locator("footer")
+            footer_text = footer_el.inner_text() if footer_el.count() > 0 else ""
             if "v1.0" in footer_text or "v2.0" in footer_text:
                 log_result("Sistem", "Versiyon Yazısı Temizliği", False, "Footer alanında 'v1.0' veya 'v2.0' ibaresi tespit edildi.")
             else:
