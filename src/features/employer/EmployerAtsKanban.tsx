@@ -36,17 +36,13 @@ export interface AuditHistoryEntry {
   reason: string;
 }
 
-// Generator for 100 realistic KTÜN candidates for scale testing
-const generate100MockCandidates = (): WorkflowApplication[] => {
+// Generator for 10 realistic KTÜN candidates
+const generate10MockCandidates = (): WorkflowApplication[] => {
   const firstNames = [
-    'Kerem', 'Gamze', 'Umut', 'Tuğba', 'Emre', 'Ayşe', 'Mehmet', 'Zeynep', 'Caner', 'Fatma',
-    'Burak', 'Elif', 'Mustafa', 'Merve', 'Ahmet', 'Selin', 'Oğuz', 'Büşra', 'Ali', 'Gözde',
-    'Hakan', 'Ebru', 'Kaan', 'Derya', 'Cem', 'Sibel', 'Taha', 'Aslı', 'Barış', 'Melisa'
+    'Kerem', 'Gamze', 'Umut', 'Tuğba', 'Emre', 'Ayşe', 'Mehmet', 'Zeynep', 'Caner', 'Fatma'
   ];
   const lastNames = [
-    'Doğan', 'Kılıç', 'Aslan', 'Çetin', 'Tunç', 'Yılmaz', 'Kaya', 'Demir', 'Şahin', 'Çelik',
-    'Öztürk', 'Arslan', 'Aslan', 'Kara', 'Koç', 'Kurt', 'Özcan', 'Şimşek', 'Yıldırım', 'Aydın',
-    'Özdemir', 'Erdoğan', 'Yıldız', 'Acar', 'Yalçın'
+    'Doğan', 'Kılıç', 'Aslan', 'Çetin', 'Tunç', 'Yılmaz', 'Kaya', 'Demir', 'Şahin', 'Çelik'
   ];
 
   const positions = [
@@ -55,14 +51,12 @@ const generate100MockCandidates = (): WorkflowApplication[] => {
     { title: 'Kalite ve Üretim Planlama Mühendisi', dept: 'Endüstri Mühendisliği' },
     { title: 'Güç Elektroniği & Tasarım Mühendisi', dept: 'Elektrik-Elektronik Mühendisliği' },
     { title: 'Yazılım Geliştirme Mühendisi (Gömülü C++)', dept: 'Bilgisayar Mühendisliği' },
-    { title: 'Otonom Sistemler Araştırma Stajyeri', dept: 'Bilgisayar Mühendisliği' },
-    { title: 'Gömülü Sistemler Donanım Mühendisi', dept: 'Elektrik-Elektronik Mühendisliği' },
   ];
 
-  const stages: WorkflowApplication['stage'][] = ['interview', 'interview', 'interview', 'hired', 'interview_rejected', 'interview'];
-  const dates = ['15.05.2024', '16.05.2024', '17.05.2024', '18.05.2024', '20.05.2024', '22.05.2024', '25.05.2024', '28.05.2024', '01.06.2024', '05.06.2024'];
-  const gpas = ['3.88', '3.75', '3.67', '3.52', '3.42', '3.31', '3.24', '3.15', '3.08', '2.95', '2.84'];
-  const matches = ['%96', '%94', '%91', '%88', '%85', '%82', '%79', '%76', '%74', '%71'];
+  const stages: WorkflowApplication['stage'][] = ['interview', 'interview', 'interview', 'hired', 'interview_rejected'];
+  const dates = ['15.05.2024', '16.05.2024', '17.05.2024', '18.05.2024', '20.05.2024'];
+  const gpas = ['3.88', '3.75', '3.67', '3.52', '3.42'];
+  const matches = ['%96', '%94', '%91', '%88', '%85'];
 
   const candidates: WorkflowApplication[] = [
     {
@@ -147,7 +141,7 @@ const generate100MockCandidates = (): WorkflowApplication[] => {
     },
   ];
 
-  for (let i = 6; i <= 100; i++) {
+  for (let i = 6; i <= 10; i++) {
     const fname = firstNames[(i - 1) % firstNames.length];
     const lname = lastNames[(i - 1) % lastNames.length];
     const pos = positions[(i - 1) % positions.length];
@@ -181,15 +175,9 @@ export const EmployerAtsKanban: React.FC = () => {
   const { applications, moveAtsCandidateStage } = useWorkflow();
   const { user } = useAuth();
 
-  // Merge context applications with 100 mock candidate dataset if context applications count is small
+  // Initialize candidates list with exactly 10 mock candidates
   const [candidatesList, setCandidatesList] = useState<WorkflowApplication[]>(() => {
-    const base100 = generate100MockCandidates();
-    if (applications.length > 4) {
-      const existingIds = new Set(applications.map((a) => a.id));
-      const filteredBase = base100.filter((b) => !existingIds.has(b.id));
-      return [...applications, ...filteredBase];
-    }
-    return base100;
+    return generate10MockCandidates();
   });
 
   // Synchronize state when workflow applications update
@@ -360,33 +348,6 @@ export const EmployerAtsKanban: React.FC = () => {
 
   // Render inline row action controls inside İŞLEM column
   const renderRowActions = (app: WorkflowApplication) => {
-    if (app.stage === 'interview') {
-      return (
-        <div className="flex items-center justify-end gap-2">
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setConfirmModal({ isOpen: true, type: 'reject', candidate: app });
-            }}
-            className="px-2.5 py-1 text-xs font-bold rounded-lg border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900 transition-colors shadow-2xs"
-          >
-            Adayı Reddet
-          </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setConfirmModal({ isOpen: true, type: 'hire', candidate: app });
-            }}
-            className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xs transition-colors"
-          >
-            İşe Alındı
-          </button>
-        </div>
-      );
-    }
-
     if (app.stage === 'hired') {
       return (
         <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 flex items-center justify-end gap-1">
@@ -407,19 +368,25 @@ export const EmployerAtsKanban: React.FC = () => {
 
     return (
       <div className="flex items-center justify-end gap-2">
-        <span className="text-[11px] font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
-          {stageTitles[app.stage] || 'Başvuruldu'}
-        </span>
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
-            setSelectedCandidate(app);
+            setConfirmModal({ isOpen: true, type: 'reject', candidate: app });
           }}
-          className="text-xs font-bold text-slate-400 hover:text-burgundy-700 dark:hover:text-white flex items-center gap-0.5 transition-colors"
+          className="px-2.5 py-1 text-xs font-bold rounded-lg border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900 transition-colors shadow-2xs"
         >
-          <span>Detay</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          Adayı Reddet
+        </button>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setConfirmModal({ isOpen: true, type: 'hire', candidate: app });
+          }}
+          className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xs transition-colors"
+        >
+          İşe Alındı
         </button>
       </div>
     );

@@ -1,59 +1,93 @@
-import React, { useState } from 'react';
-import { CheckCircle2, Calendar } from 'lucide-react';
-
-export interface ApplicationItem {
-  id: string;
-  companyName: string;
-  companyLogo: string;
-  jobTitle: string;
-  appliedDate: string;
-  currentStep: number;
-  statusText: string;
-  interviewDate?: string;
-}
+import React from 'react';
+import { useWorkflow } from '../../context/WorkflowContext';
+import type { WorkflowApplication } from '../../context/WorkflowContext';
 
 export const StudentApplications: React.FC = () => {
-  const [applications] = useState<ApplicationItem[]>([
-    {
-      id: 'app-1',
-      companyName: 'ASELSAN Konya',
-      companyLogo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=120&q=80',
-      jobTitle: 'Yazılım Geliştirme Mühendisi',
-      appliedDate: '15 Mayıs 2024',
-      currentStep: 3,
-      statusText: 'Mülakat Aşamasında',
-      interviewDate: '24 Mayıs 2024 - 14:00 (Online Teams)',
-    },
-    {
-      id: 'app-2',
-      companyName: 'ROKETSAN',
-      companyLogo: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80',
-      jobTitle: 'Sistem Mühendisi (Gömülü)',
-      appliedDate: '10 Mayıs 2024',
-      currentStep: 2,
-      statusText: 'Ön Eleme & Değerlendirme',
-    },
-    {
-      id: 'app-3',
-      companyName: 'HAVELSAN',
-      companyLogo: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
-      jobTitle: 'Yapay Zeka Araştırmacısı',
-      appliedDate: '01 Mayıs 2024',
-      currentStep: 1,
-      statusText: 'Başvuru İletildi',
-    },
-  ]);
+  const { applications: wfApplications } = useWorkflow();
 
-  const atsSteps = [
-    { step: 1, label: 'Başvuru' },
-    { step: 2, label: 'Ön Eleme' },
-    { step: 3, label: 'Mülakat' },
-    { step: 4, label: 'Teklif' },
-    { step: 5, label: 'İşe Alındı' },
-  ];
+  const allApplications = React.useMemo(() => {
+    const list: Array<{
+      id: string;
+      companyName: string;
+      jobTitle: string;
+      appliedDate: string;
+      stage: WorkflowApplication['stage'];
+    }> = [
+      {
+        id: 'app-1',
+        companyName: 'ASELSAN Konya Silah Sistemleri A.Ş.',
+        jobTitle: 'Yazılım Geliştirme Mühendisi (Gömülü C++)',
+        appliedDate: '15.05.2024',
+        stage: 'interview',
+      },
+      {
+        id: 'app-2',
+        companyName: 'ROKETSAN',
+        jobTitle: 'Sistem Mühendisi (Gömülü)',
+        appliedDate: '10.05.2024',
+        stage: 'screening',
+      },
+      {
+        id: 'app-3',
+        companyName: 'HAVELSAN',
+        jobTitle: 'Yapay Zeka Araştırmacısı',
+        appliedDate: '01.05.2024',
+        stage: 'applied',
+      },
+    ];
+
+    // Merge live workflow applications ensuring uniqueness
+    if (wfApplications && wfApplications.length > 0) {
+      wfApplications.forEach((wfApp) => {
+        const idx = list.findIndex((l) => l.id === wfApp.id);
+        if (idx >= 0) {
+          list[idx] = {
+            ...list[idx],
+            stage: wfApp.stage,
+            jobTitle: wfApp.jobTitle || list[idx].jobTitle,
+            companyName: wfApp.companyName || list[idx].companyName,
+          };
+        } else {
+          list.push({
+            id: wfApp.id,
+            companyName: wfApp.companyName || 'ASELSAN Konya',
+            jobTitle: wfApp.jobTitle || 'İlan Başvurusu',
+            appliedDate: wfApp.appliedDate || 'Bugün',
+            stage: wfApp.stage,
+          });
+        }
+      });
+    }
+
+    return list;
+  }, [wfApplications]);
+
+  const getStageConfig = (stage: string) => {
+    switch (stage) {
+      case 'hired':
+        return {
+          text: 'İşe Alındı',
+          badgeClass: 'bg-emerald-100 text-emerald-900 border border-emerald-300 font-extrabold text-xs px-3.5 py-1.5',
+          icon: '✓ ',
+        };
+      case 'interview_rejected':
+        return {
+          text: 'Aday Reddedildi',
+          badgeClass: 'bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3.5 py-1.5',
+          icon: '✕ ',
+        };
+      default:
+        return {
+          text: 'Değerlendirme Aşamasında',
+          badgeClass: 'bg-amber-50 text-amber-800 border border-amber-200 font-bold text-xs px-3 py-1.5',
+          icon: '⏳ ',
+        };
+    }
+  };
 
   return (
     <div className="space-y-6">
+      {/* Top Title Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
         <div>
           <h2 className="text-lg font-black text-slate-900 dark:text-white uppercase tracking-tight">
@@ -65,75 +99,36 @@ export const StudentApplications: React.FC = () => {
         </div>
       </div>
 
-      <div className="space-y-4">
-        {applications.map((app) => (
-          <div
-            key={app.id}
-            className="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-6"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl border border-slate-200 p-2 bg-white flex items-center justify-center shrink-0">
-                  <img src={app.companyLogo} alt={app.companyName} className="max-h-full max-w-full object-contain" />
+      {/* Simplified Applications Cards List */}
+      <div className="space-y-3">
+        {allApplications.map((app) => {
+          const cfg = getStageConfig(app.stage);
+
+          return (
+            <div
+              key={app.id}
+              className="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl border border-slate-200 dark:border-slate-700 p-2 bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 font-black text-burgundy-700 text-base shadow-2xs">
+                  {app.companyName.substring(0, 2).toUpperCase()}
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">{app.jobTitle}</h3>
-                  <span className="text-xs font-semibold text-burgundy-700 block">{app.companyName}</span>
-                  <span className="text-[11px] text-slate-400">Başvuru Tarihi: {app.appliedDate}</span>
+                <div className="space-y-0.5">
+                  <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{app.jobTitle}</h3>
+                  <span className="text-xs font-bold text-burgundy-700 dark:text-burgundy-400 block">{app.companyName}</span>
+                  <span className="text-[11px] text-slate-400 font-medium block">Başvuru Tarihi: {app.appliedDate}</span>
                 </div>
               </div>
 
-              <div className="text-right">
-                <span className="inline-block text-xs font-bold text-burgundy-700 bg-burgundy-50 dark:bg-burgundy-950 px-3 py-1 rounded-full">
-                  {app.statusText}
+              <div className="flex items-center sm:justify-end">
+                <span className={`inline-flex items-center gap-1 rounded-full ${cfg.badgeClass}`}>
+                  <span>{cfg.icon}</span>
+                  <span>{cfg.text}</span>
                 </span>
-                {app.interviewDate && (
-                  <p className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 mt-1 flex items-center justify-end gap-1">
-                    <Calendar className="w-3.5 h-3.5" /> {app.interviewDate}
-                  </p>
-                )}
               </div>
             </div>
-
-            <div className="space-y-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
-                ATS İlerleme Süreci (Aday Takip):
-              </span>
-              <div className="grid grid-cols-5 gap-2 relative">
-                {atsSteps.map((s) => {
-                  const isCompleted = s.step < app.currentStep;
-                  const isCurrent = s.step === app.currentStep;
-                  return (
-                    <div key={s.step} className="text-center space-y-1.5">
-                      <div
-                        className={`w-8 h-8 rounded-full mx-auto flex items-center justify-center text-xs font-bold transition-all ${
-                          isCompleted
-                            ? 'bg-emerald-600 text-white'
-                            : isCurrent
-                            ? 'bg-burgundy-700 text-white ring-4 ring-burgundy-100 dark:ring-burgundy-950'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-400'
-                        }`}
-                      >
-                        {isCompleted ? <CheckCircle2 className="w-4 h-4" /> : s.step}
-                      </div>
-                      <span
-                        className={`text-[11px] block font-semibold ${
-                          isCurrent
-                            ? 'text-burgundy-700 dark:text-burgundy-400 font-extrabold'
-                            : isCompleted
-                            ? 'text-slate-700 dark:text-slate-300'
-                            : 'text-slate-400'
-                        }`}
-                      >
-                        {s.label}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
