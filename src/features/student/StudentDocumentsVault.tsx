@@ -4,7 +4,7 @@ import { Input } from '../../components/ui/Input';
 import { Modal } from '../../components/ui/Modal';
 import { Alert } from '../../components/ui/Alert';
 import { Badge } from '../../components/ui/Badge';
-import { Upload, Download, ShieldCheck, HardDrive } from 'lucide-react';
+import { Upload, Download, HardDrive } from 'lucide-react';
 import { fileManagementService, type UserDocumentDto } from '../../services/fileManagementService';
 import { useAuth } from '../../context/AuthContext';
 
@@ -44,7 +44,7 @@ export const StudentDocumentsVault: React.FC = () => {
       setDocuments([created, ...documents]);
       setIsUploadModalOpen(false);
       setNewDoc({ title: '', category: 'CV', file: null });
-      setAlertMsg(`"${created.fileName}" belgesi güvenli şekilde yüklendi (ClamAV Virüs Taraması Temiz & AWS S3 Depolandı).`);
+      setAlertMsg(`"${created.fileName}" belgesi başarıyla yüklendi.`);
     }
   };
 
@@ -117,10 +117,6 @@ export const StudentDocumentsVault: React.FC = () => {
                     {doc.versionString}
                   </span>
                 </div>
-
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-extrabold text-[10px] border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3 text-emerald-600" /> Virüs Taraması Temiz ({doc.virusScanStatus})
-                </span>
               </div>
 
               <h4 className="font-extrabold text-slate-900 dark:text-white text-sm">{doc.fileName}</h4>
@@ -182,7 +178,7 @@ export const StudentDocumentsVault: React.FC = () => {
               onChange={(e) => setNewDoc({ ...newDoc, file: e.target.files ? e.target.files[0] : null })}
               className="text-xs text-slate-500 font-semibold"
             />
-            <p className="text-[10px] text-slate-400">PDF, PNG, JPG (Maks. 25MB). Otomatik ClamAV taranacaktır.</p>
+            <p className="text-[10px] text-slate-400">PDF, PNG, JPG (Maks. 25MB).</p>
           </div>
 
           <div className="flex justify-end gap-2 pt-2">
