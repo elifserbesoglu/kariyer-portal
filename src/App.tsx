@@ -202,14 +202,18 @@ export function MainRouterContent() {
   );
 }
 
+import { MessagingProvider } from './context/MessagingContext';
+
 export default function App() {
   return (
     <ThemeProvider>
       <ToastProvider>
         <AuthProvider>
           <WorkflowProvider>
-            <MainRouterContent />
-            <ToastContainer />
+            <MessagingProvider>
+              <MainRouterContent />
+              <ToastContainer />
+            </MessagingProvider>
           </WorkflowProvider>
         </AuthProvider>
       </ToastProvider>

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { EmployerAtsKanban } from '../../features/employer/EmployerAtsKanban';
 import { EmployerJobList } from '../../features/employer/EmployerJobList';
+import { EmployerMessaging } from '../../features/employer/EmployerMessaging';
 import { StatCard } from '../../components/cards/StatCard';
 import { Breadcrumb } from '../../components/ui/Breadcrumb';
-import { Building2, Briefcase, Users } from 'lucide-react';
+import { Building2, Briefcase, Users, MessageSquare } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useWorkflow } from '../../context/WorkflowContext';
+import { useMessaging } from '../../context/MessagingContext';
 
 export interface EmployerPageProps {
   onNavigate?: (view: string) => void;
@@ -14,13 +16,19 @@ export interface EmployerPageProps {
 export const EmployerAtsPage: React.FC<EmployerPageProps> = ({ onNavigate }) => {
   const { user } = useAuth();
   const { jobs, applications } = useWorkflow();
+  const { conversations } = useMessaging();
 
-  const [activeTab, setActiveTab] = useState<'jobs' | 'ats'>(() => {
+  const totalUnreadForEmployer = conversations.reduce(
+    (sum, c) => sum + (c.unreadCountEmployer || 0),
+    0
+  );
+
+  const [activeTab, setActiveTab] = useState<'jobs' | 'ats' | 'messages'>(() => {
     const saved = localStorage.getItem('ktun_employer_active_tab');
-    return saved === 'jobs' || saved === 'ats' ? saved : 'ats';
+    return saved === 'jobs' || saved === 'ats' || saved === 'messages' ? saved : 'ats';
   });
 
-  const handleTabChange = (tab: 'jobs' | 'ats') => {
+  const handleTabChange = (tab: 'jobs' | 'ats' | 'messages') => {
     setActiveTab(tab);
     localStorage.setItem('ktun_employer_active_tab', tab);
   };
@@ -48,17 +56,21 @@ export const EmployerAtsPage: React.FC<EmployerPageProps> = ({ onNavigate }) => 
                 Onaylı Kurum
               </span>
             </h1>
-            <p className="text-xs text-slate-500 font-medium">Firma Yönetim Paneli — İlan İnceleme, Düzenleme & Aday Takip</p>
+            <p className="text-xs text-slate-500 font-medium">
+              Firma Yönetim Paneli — İlan İnceleme, Düzenleme, Mesajlaşma & Aday Takip
+            </p>
           </div>
         </div>
 
-        {/* Tab Selector & New Job Button */}
+        {/* Tab Selector Buttons */}
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
             <button
               onClick={() => handleTabChange('jobs')}
               className={`px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors ${
-                activeTab === 'jobs' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs' : 'text-slate-500'
+                activeTab === 'jobs'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs'
+                  : 'text-slate-500'
               }`}
             >
               <Briefcase className="w-4 h-4" />
@@ -68,11 +80,28 @@ export const EmployerAtsPage: React.FC<EmployerPageProps> = ({ onNavigate }) => 
             <button
               onClick={() => handleTabChange('ats')}
               className={`px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors ${
-                activeTab === 'ats' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs' : 'text-slate-500'
+                activeTab === 'ats'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs'
+                  : 'text-slate-500'
               }`}
             >
               <Users className="w-4 h-4" />
               <span>Aday Takip (ATS) ({applications.length})</span>
+            </button>
+
+            <button
+              onClick={() => handleTabChange('messages')}
+              className={`px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors relative ${
+                activeTab === 'messages'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs'
+                  : 'text-slate-500'
+              }`}
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Mesajlaşma & Görüşmeler</span>
+              {totalUnreadForEmployer > 0 && (
+                <span className="w-2 h-2 rounded-full bg-burgundy-700 animate-pulse ml-0.5" />
+              )}
             </button>
           </div>
         </div>
@@ -80,10 +109,30 @@ export const EmployerAtsPage: React.FC<EmployerPageProps> = ({ onNavigate }) => 
 
       {/* High-Level Key Performance Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Yayındaki İlanlar" value={jobs.filter((j) => j.moderationStatus === 'Published').length.toString()} subtitle="Doğrudan Yayında" className="border-l-4 border-l-emerald-500" />
-        <StatCard title="Toplam Başvuru" value={applications.length.toString()} subtitle="Aday İncelemede" className="border-l-4 border-l-burgundy-700" />
-        <StatCard title="Mülakat Aşaması" value="6" subtitle="Teams & Fiziksel" className="border-l-4 border-l-navy-900" />
-        <StatCard title="Tamamlanan İşe Alım" value="2" subtitle="Aday Mühendis" className="border-l-4 border-l-amber-500" />
+        <StatCard
+          title="Yayındaki İlanlar"
+          value={jobs.filter((j) => j.moderationStatus === 'Published').length.toString()}
+          subtitle="Doğrudan Yayında"
+          className="border-l-4 border-l-emerald-500"
+        />
+        <StatCard
+          title="Toplam Başvuru"
+          value={applications.length.toString()}
+          subtitle="Aday İncelemede"
+          className="border-l-4 border-l-burgundy-700"
+        />
+        <StatCard
+          title="Aktif Sohbetler"
+          value={conversations.length.toString()}
+          subtitle="Aday İletişimi"
+          className="border-l-4 border-l-navy-900"
+        />
+        <StatCard
+          title="Tamamlanan İşe Alım"
+          value="2"
+          subtitle="Aday Mühendis"
+          className="border-l-4 border-l-amber-500"
+        />
       </div>
 
       {/* Main Tab Content */}
@@ -94,7 +143,17 @@ export const EmployerAtsPage: React.FC<EmployerPageProps> = ({ onNavigate }) => 
         />
       )}
 
-      {activeTab === 'ats' && <EmployerAtsKanban />}
+      {activeTab === 'ats' && (
+        <EmployerAtsKanban
+          onNavigateToMessages={() => handleTabChange('messages')}
+        />
+      )}
+
+      {activeTab === 'messages' && (
+        <EmployerMessaging
+          onNavigateToAtsCandidate={() => handleTabChange('ats')}
+        />
+      )}
     </div>
   );
 };

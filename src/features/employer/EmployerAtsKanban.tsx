@@ -17,6 +17,7 @@ import {
   ArrowRight,
   CheckCircle2,
   XCircle,
+  MessageSquare,
 } from 'lucide-react';
 import { Drawer } from '../../components/ui/Drawer';
 import { Input } from '../../components/ui/Input';
@@ -26,6 +27,7 @@ import { Alert } from '../../components/ui/Alert';
 import { useWorkflow } from '../../context/WorkflowContext';
 import type { WorkflowApplication } from '../../context/WorkflowContext';
 import { useAuth } from '../../context/AuthContext';
+import { useMessaging } from '../../context/MessagingContext';
 
 export interface AuditHistoryEntry {
   id: string;
@@ -171,9 +173,14 @@ const generate10MockCandidates = (): WorkflowApplication[] => {
   return candidates;
 };
 
-export const EmployerAtsKanban: React.FC = () => {
+export interface EmployerAtsKanbanProps {
+  onNavigateToMessages?: (email: string) => void;
+}
+
+export const EmployerAtsKanban: React.FC<EmployerAtsKanbanProps> = ({ onNavigateToMessages }) => {
   const { applications, moveAtsCandidateStage } = useWorkflow();
   const { user } = useAuth();
+  const { getOrCreateConversation } = useMessaging();
 
   // Initialize candidates list with exactly 10 mock candidates
   const [candidatesList, setCandidatesList] = useState<WorkflowApplication[]>(() => {
@@ -754,21 +761,44 @@ export const EmployerAtsKanban: React.FC = () => {
           <div className="space-y-6 py-2">
             {/* Header Profile Box */}
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-burgundy-700 text-white font-black text-xl flex items-center justify-center shadow-md">
-                  {selectedCandidate.studentName.substring(0, 2).toUpperCase()}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-burgundy-700 text-white font-black text-xl flex items-center justify-center shadow-md shrink-0">
+                    {selectedCandidate.studentName.substring(0, 2).toUpperCase()}
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-base font-extrabold text-slate-900 dark:text-white">
+                      {selectedCandidate.studentName}
+                    </h3>
+                    <span className="text-xs font-bold text-burgundy-700 dark:text-burgundy-400 block">
+                      {selectedCandidate.department} (GANO: {selectedCandidate.gpa})
+                    </span>
+                    <span className="text-[11px] text-slate-400 block">
+                      İlan: {selectedCandidate.jobTitle} • Başvuru: {selectedCandidate.appliedDate}
+                    </span>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="text-base font-extrabold text-slate-900 dark:text-white">
-                    {selectedCandidate.studentName}
-                  </h3>
-                  <span className="text-xs font-bold text-burgundy-700 dark:text-burgundy-400 block">
-                    {selectedCandidate.department} (GANO: {selectedCandidate.gpa})
-                  </span>
-                  <span className="text-[11px] text-slate-400 block">
-                    İlan: {selectedCandidate.jobTitle} • Başvuru: {selectedCandidate.appliedDate}
-                  </span>
-                </div>
+
+                <Button
+                  size="sm"
+                  variant="primary"
+                  onClick={() => {
+                    getOrCreateConversation(
+                      selectedCandidate.studentName,
+                      selectedCandidate.studentEmail,
+                      selectedCandidate.department,
+                      selectedCandidate.jobTitle
+                    );
+                    if (onNavigateToMessages) {
+                      onNavigateToMessages(selectedCandidate.studentEmail);
+                    }
+                    setSelectedCandidate(null);
+                  }}
+                  leftIcon={<MessageSquare className="w-3.5 h-3.5" />}
+                  className="bg-burgundy-700 hover:bg-burgundy-800 text-white font-bold text-xs shrink-0"
+                >
+                  Adaya Mesaj Gönder
+                </Button>
               </div>
 
               {/* Drawer Tabs */}
