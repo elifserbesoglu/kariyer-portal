@@ -57,10 +57,10 @@ export const StudentDocumentsVault: React.FC = () => {
         <div>
           <h2 className="text-lg font-black text-slate-900 dark:text-white uppercase tracking-tight flex items-center gap-2">
             <HardDrive className="w-5 h-5 text-burgundy-700" />
-            <span>Kurumsal Belge Deposu</span>
+            <span>Belgelerim & Sertifikalarım</span>
           </h2>
           <p className="text-xs text-slate-500 font-medium">
-            Özgeçmiş, sertifika ve belgelerinizi güvenle saklayın ve yönetin.
+            Özgeçmiş, sertifika, transkript ve kariyer belgelerinizi güvenle saklayın ve yönetin.
           </p>
         </div>
 
