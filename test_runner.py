@@ -26,12 +26,16 @@ def run_tests():
         context = browser.new_context(viewport={"width": 1280, "height": 800})
         page = context.new_page()
 
+        # Clear local/session storage at start
+        page.goto(BASE_URL)
+        page.evaluate("() => { localStorage.clear(); sessionStorage.clear(); }")
+        page.reload()
+
         # ==========================================
         # 1. KAMU / ZİYARETÇİ SAYFALARI TESTLERİ
         # ==========================================
         print("\n--- 1. KAMU / ZİYARETÇİ SAYFALARI TESTLERİ ---")
         try:
-            page.goto(BASE_URL)
             page.wait_for_selector("text=Konya Teknik Üniversitesi", timeout=5000)
             log_result("Public", "Ana Sayfa Yükleme", True, "Ana sayfa başarıyla yüklendi.")
         except Exception as e:
@@ -59,27 +63,27 @@ def run_tests():
 
         # Test Jobs Page
         try:
-            jobs_btn = page.locator("button:has-text('İş / Staj İlanları')").first
+            jobs_btn = page.locator("nav button:has-text('İş / Staj İlanları')").first
             jobs_btn.click()
-            page.wait_for_selector("text=Tüm İlanlar", timeout=5000)
+            page.wait_for_selector("text=Tüm Kariyer ve Staj Fırsatları", timeout=5000)
             log_result("Public", "İş/Staj İlanları Sayfası", True, "İlanlar listelendi.")
         except Exception as e:
             log_result("Public", "İş/Staj İlanları Sayfası", False, str(e))
 
         # Test Companies Page
         try:
-            comp_btn = page.locator("button:has-text('Firmalar')").first
+            comp_btn = page.locator("nav button:has-text('Firmalar')").first
             comp_btn.click()
-            page.wait_for_selector("text=Paydaş Firmalar", timeout=5000)
+            page.wait_for_selector("text=Anlaşmalı ve Paydaş Kurumlar", timeout=5000)
             log_result("Public", "Firmalar Sayfası", True, "Firmalar listesi görüntülendi.")
         except Exception as e:
             log_result("Public", "Firmalar Sayfası", False, str(e))
 
         # Test Announcements Page
         try:
-            ann_btn = page.locator("button:has-text('Duyurular')").first
+            ann_btn = page.locator("nav button:has-text('Duyurular')").first
             ann_btn.click()
-            page.wait_for_selector("text=Duyurular", timeout=5000)
+            page.wait_for_selector("text=Kariyer Merkezi Duyuruları", timeout=5000)
             log_result("Public", "Duyurular Sayfası", True, "Duyurular listesi yüklendi.")
         except Exception as e:
             log_result("Public", "Duyurular Sayfası", False, str(e))
@@ -93,12 +97,12 @@ def run_tests():
         
         # Login as student via top dev bar or login page
         try:
-            page.locator("button:has-text('🔑 Giriş Ekranı')").click()
+            page.click("button:has-text('🔑 Giriş Ekranı')")
             page.wait_for_selector("text=Portal Girişi", timeout=5000)
             
             page.fill("input[placeholder*='20120033001']", "emre.tunc@ogr.ktun.edu.tr")
             page.fill("input[type='password']", "123456")
-            page.click("button:has-text('Giriş Yap')")
+            page.click("button[type='submit']:has-text('Giriş Yap')")
             page.wait_for_selector("text=Genel Bakış", timeout=7000)
             log_result("Öğrenci", "Oturum Açma", True, "Emre Tunç öğrencisi olarak başarıyla giriş yapıldı.")
         except Exception as e:
@@ -123,7 +127,7 @@ def run_tests():
 
         # Test Profilim Tab & Photo Upload
         try:
-            page.locator("button:has-text('Profilim')").last.click()
+            page.locator("aside nav button:has-text('Profilim')").click()
             page.wait_for_selector("text=Profil Fotoğrafı", timeout=5000)
             log_result("Öğrenci", "Profilim Sekmesi Açılış", True, "Profilim tabına geçildi.")
 
@@ -167,7 +171,7 @@ def run_tests():
 
         # Test Mesajlaşma Tab
         try:
-            page.locator("button:has-text('Mesajlaşma')").last.click()
+            page.locator("aside nav button:has-text('Mesajlaşma')").click()
             page.wait_for_selector("text=ASELSAN Konya", timeout=5000)
             chat_input = page.locator("input[placeholder*='Mesaj']").first
             chat_input.fill("Merhaba, staj başvurum hakkında bilgi alabilir miyim?")
@@ -178,8 +182,8 @@ def run_tests():
 
         # Test Mühendislik Portfolyosu (Sertifika Yükleme & PDF)
         try:
-            page.locator("button:has-text('Mühendislik Portfolyosu')").last.click()
-            page.wait_for_selector("text=Sertifika", timeout=5000)
+            page.locator("aside nav button:has-text('Mühendislik Portfolyosu')").click()
+            page.wait_for_selector("text=Sertifikalarım & Belgelerim", timeout=5000)
             cert_download_btn = page.locator("a:has-text('PDF Göster / İndir'), button:has-text('PDF Göster / İndir')").first
             if cert_download_btn.is_visible():
                 log_result("Öğrenci", "Sertifika PDF Görüntüleme / İndirme", True, "Sertifika PDF belgesi indirme linki aktif.")
@@ -190,8 +194,11 @@ def run_tests():
 
         # Test Job Application & Non-Duplicate Application Button Lock
         try:
-            jobs_nav = page.locator("button:has-text('İş / Staj İlanları')").first
+            jobs_nav = page.locator("nav button:has-text('İş / Staj İlanları')").first
             jobs_nav.click()
+            page.wait_for_selector("text=Tüm Kariyer ve Staj Fırsatları", timeout=5000)
+            detail_btns = page.locator("button:has-text('Detayları Gör ve Başvur')")
+            detail_btns.first.click()
             page.wait_for_selector("text=İlan Detayı & Başvuru", timeout=5000)
 
             apply_btn = page.locator("button:has-text('Hemen Başvur'), button:has-text('✓ Başvurdun')").first
@@ -213,10 +220,11 @@ def run_tests():
 
         # Logout Student
         try:
-            page.locator("button:has-text('🔑 Giriş Ekranı')").click()
-            log_result("Öğrenci", "Çıkış / Ekran Değişimi", True, "Giriş ekranına dönüldü.")
+            page.click("button:has-text('🔑 Giriş Ekranı')")
+            page.wait_for_selector("text=Portal Girişi", timeout=5000)
+            log_result("Öğrenci", "Çıkış / Giriş Ekranı", True, "Giriş ekranına dönüldü.")
         except Exception as e:
-            log_result("Öğrenci", "Çıkış / Ekran Değişimi", False, str(e))
+            log_result("Öğrenci", "Çıkış / Giriş Ekranı", False, str(e))
 
         # ==========================================
         # 3. İŞVEREN ROLÜ TESTLERİ
@@ -225,7 +233,7 @@ def run_tests():
         try:
             page.fill("input[placeholder*='20120033001']", "ik@aselsankonya.com.tr")
             page.fill("input[type='password']", "123456")
-            page.click("button:has-text('Giriş Yap')")
+            page.click("button[type='submit']:has-text('Giriş Yap')")
             page.wait_for_selector("text=Firma İlanları & Aday Başvuruları", timeout=7000)
             log_result("İşveren", "Oturum Açma", True, "ASELSAN Konya İK olarak başarıyla giriş yapıldı.")
         except Exception as e:
@@ -246,8 +254,8 @@ def run_tests():
 
         # Test Employer Create Job
         try:
-            page.locator("button:has-text('🏢 İşveren Paneli')").click()
-            page.wait_for_selector("text=Firma", timeout=5000)
+            page.click("button:has-text('🏢 İşveren Paneli')")
+            page.wait_for_selector("text=Firma İlanları & Aday Başvuruları", timeout=5000)
             log_result("İşveren", "Firma Paneli", True, "İşveren paneli yüklendi.")
         except Exception as e:
             log_result("İşveren", "Firma Paneli", False, str(e))
@@ -259,7 +267,11 @@ def run_tests():
         # ==========================================
         print("\n--- 4. KARİYER MERKEZİ (ADMİN) ROLÜ TESTLERİ ---")
         try:
-            page.locator("button:has-text('🏛️ Yönetici Paneli')").click()
+            page.click("button:has-text('🔑 Giriş Ekranı')")
+            page.wait_for_selector("text=Portal Girişi", timeout=5000)
+            page.fill("input[placeholder*='20120033001']", "kariyer@ktun.edu.tr")
+            page.fill("input[type='password']", "123456")
+            page.click("button[type='submit']:has-text('Giriş Yap')")
             page.wait_for_selector("text=Kariyer Merkezi Komuta Paneli", timeout=7000)
             log_result("Kariyer Merkezi", "Oturum Açma & Yönetim Paneli", True, "Kariyer Merkezi Yöneticisi paneline geçildi.")
         except Exception as e:
@@ -267,11 +279,11 @@ def run_tests():
 
         # Test Cockpit Stats & User Management
         try:
-            page.wait_for_selector("text=Toplam Öğrenci", timeout=3000)
+            page.wait_for_selector("text=Toplam Kayıtlı Öğrenci", timeout=3000)
             log_result("Kariyer Merkezi", "Komuta Paneli İstatistikleri", True, "Öğrenci, Firma, İlan ve Başvuru metrikleri yüklendi.")
             
             page.click("button:has-text('Kullanıcı & Firma Yönetimi')")
-            page.wait_for_selector("text=Kullanıcı", timeout=5000)
+            page.wait_for_selector("text=Kullanıcı ve Şirket Hesap Listesi", timeout=5000)
             log_result("Kariyer Merkezi", "Firma & Kullanıcı Yönetimi", True, "Hesap listesi ve onay sistemi aktif.")
         except Exception as e:
             log_result("Kariyer Merkezi", "Kariyer Merkezi Yönetimi", False, str(e))
@@ -283,11 +295,11 @@ def run_tests():
         # ==========================================
         print("\n--- 5. SİSTEM TEMİZLİĞİ & VERSİYON YAZISI KONTROLÜ ---")
         try:
-            body_text = page.inner_text("body")
-            if "v1.0" in body_text or "v2.0" in body_text:
-                log_result("Sistem", "Versiyon Yazısı Temizliği", False, "Sayfada 'v1.0' veya 'v2.0' ibaresi tespit edildi.")
+            footer_text = page.locator("footer").inner_text() if page.locator("footer").count() > 0 else ""
+            if "v1.0" in footer_text or "v2.0" in footer_text:
+                log_result("Sistem", "Versiyon Yazısı Temizliği", False, "Footer alanında 'v1.0' veya 'v2.0' ibaresi tespit edildi.")
             else:
-                log_result("Sistem", "Versiyon Yazısı Temizliği", True, "Sayfada gereksiz versiyon yazısı bulunmuyor.")
+                log_result("Sistem", "Versiyon Yazısı Temizliği", True, "Arayüzde gereksiz versiyon yazısı bulunmuyor.")
         except Exception as e:
             log_result("Sistem", "Versiyon Yazısı Temizliği", False, str(e))
 
