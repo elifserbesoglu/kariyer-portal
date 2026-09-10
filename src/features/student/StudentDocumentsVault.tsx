@@ -49,6 +49,21 @@ export const StudentDocumentsVault: React.FC = () => {
 
   const filteredDocs = documents.filter((d) => activeCategory === 'ALL' || d.documentType === activeCategory);
 
+  const getCategoryLabel = (type: string) => {
+    switch (type) {
+      case 'CV':
+        return 'Özgeçmiş';
+      case 'CERTIFICATE':
+        return 'Sertifika';
+      case 'DIPLOMA':
+        return 'Diploma / Transkript';
+      case 'PORTFOLIO':
+        return 'Portfolyo';
+      default:
+        return type;
+    }
+  };
+
   return (
     <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
       {/* Header */}
@@ -111,7 +126,7 @@ export const StudentDocumentsVault: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Badge variant="primary" size="sm">{doc.documentType}</Badge>
+                  <Badge variant="primary" size="sm">{getCategoryLabel(doc.documentType)}</Badge>
                 </div>
               </div>
 
