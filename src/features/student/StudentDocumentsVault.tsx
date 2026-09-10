@@ -147,7 +147,7 @@ export const StudentDocumentsVault: React.FC = () => {
       <Modal
         isOpen={isUploadModalOpen}
         onClose={() => setIsUploadModalOpen(false)}
-        title="Güvenli Bulut Depo Belge Yükleme"
+        title="Belge Yükle"
       >
         <form onSubmit={handleUploadSubmit} className="space-y-4 py-2">
           <Input
@@ -187,7 +187,7 @@ export const StudentDocumentsVault: React.FC = () => {
 
           <div className="flex justify-end gap-2 pt-2">
             <Button type="button" variant="ghost" onClick={() => setIsUploadModalOpen(false)}>İptal</Button>
-            <Button type="submit" variant="primary">AWS S3 Depola & Taramadan Geçir</Button>
+            <Button type="submit" variant="primary">Yükle</Button>
           </div>
         </form>
       </Modal>
