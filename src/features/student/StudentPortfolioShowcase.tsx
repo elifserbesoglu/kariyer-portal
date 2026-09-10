@@ -15,6 +15,9 @@ import {
   GitBranch,
   Trash2,
   Eye,
+  Upload,
+  FileText,
+  Download,
 } from 'lucide-react';
 
 export interface PortfolioProject {
@@ -33,6 +36,8 @@ export interface VerifiedCertificate {
   organization: string;
   issueDate: string;
   credentialId: string;
+  pdfFileName?: string;
+  pdfUrl?: string;
 }
 
 export const StudentPortfolioShowcase: React.FC = () => {
@@ -64,6 +69,8 @@ export const StudentPortfolioShowcase: React.FC = () => {
       organization: 'ASELSAN Akademi',
       issueDate: 'Haziran 2026',
       credentialId: 'ASELSAN-2026-8894',
+      pdfFileName: 'ASELSAN_Aday_Muhendis_Sertifikasi.pdf',
+      pdfUrl: '#',
     },
     {
       id: 'cert-2',
@@ -71,6 +78,8 @@ export const StudentPortfolioShowcase: React.FC = () => {
       organization: 'TÜBİTAK',
       issueDate: 'Mayıs 2026',
       credentialId: 'TUBITAK-2209A-1092',
+      pdfFileName: 'TUBITAK_2209A_Proje_Belgesi.pdf',
+      pdfUrl: '#',
     },
   ]);
 
@@ -92,6 +101,7 @@ export const StudentPortfolioShowcase: React.FC = () => {
     title: '',
     organization: '',
     credentialId: '',
+    pdfFile: null as File | null,
   });
 
   const handleDeleteProject = (id: string, e?: React.MouseEvent) => {
@@ -141,12 +151,14 @@ export const StudentPortfolioShowcase: React.FC = () => {
       organization: newCert.organization || 'KTÜN Kariyer Merkezi',
       issueDate: 'Ağustos 2026',
       credentialId: newCert.credentialId || `KTUN-${Date.now()}`,
+      pdfFileName: newCert.pdfFile ? newCert.pdfFile.name : `${newCert.title.replace(/\s+/g, '_')}.pdf`,
+      pdfUrl: '#',
     };
 
     setCertificates([created, ...certificates]);
     setIsCertModalOpen(false);
-    setNewCert({ title: '', organization: '', credentialId: '' });
-    setSuccessMsg('Sertifikanız başarıyla eklendi.');
+    setNewCert({ title: '', organization: '', credentialId: '', pdfFile: null });
+    setSuccessMsg('Sertifikanız belgesiyle birlikte başarıyla eklendi.');
     setTimeout(() => setSuccessMsg(null), 3000);
   };
 
@@ -273,31 +285,49 @@ export const StudentPortfolioShowcase: React.FC = () => {
       <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
         <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
           <Award className="w-4 h-4 text-burgundy-700" />
-          <span>Sertifikalar ({certificates.length})</span>
+          <span>Sertifikalar & Belgeler ({certificates.length})</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="p-4 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-4 text-xs group"
+              className="p-5 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-4 text-xs group"
             >
-              <div className="space-y-1">
-                <h4 className="font-extrabold text-slate-900 dark:text-white text-sm">{cert.title}</h4>
-                <p className="text-slate-500 font-medium">{cert.organization} • {cert.issueDate}</p>
-                <p className="text-[10px] font-mono text-slate-400">Kimlik: {cert.credentialId}</p>
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1">
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-sm">{cert.title}</h4>
+                  <p className="text-slate-500 font-semibold">{cert.organization} • {cert.issueDate}</p>
+                  {cert.credentialId && <p className="text-[10px] font-mono text-slate-400">Kimlik: {cert.credentialId}</p>}
+                </div>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <FileCheck className="w-6 h-6 text-burgundy-700" />
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteCert(cert.id)}
+                    className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors"
+                    title="Sertifikayı Sil"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <FileCheck className="w-7 h-7 text-burgundy-700" />
-                <button
-                  type="button"
-                  onClick={() => handleDeleteCert(cert.id)}
-                  className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors"
-                  title="Sertifikayı Sil"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
+
+              {cert.pdfFileName && (
+                <div className="pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+                  <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400 flex items-center gap-1.5 truncate max-w-[200px]" title={cert.pdfFileName}>
+                    <FileText className="w-3.5 h-3.5 text-burgundy-700 shrink-0" />
+                    <span className="truncate">{cert.pdfFileName}</span>
+                  </span>
+                  <a
+                    href={cert.pdfUrl || '#'}
+                    download={cert.pdfFileName}
+                    className="px-3 py-1.5 bg-burgundy-700 hover:bg-burgundy-800 text-white font-bold rounded-xl text-xs inline-flex items-center gap-1.5 transition-colors shadow-2xs shrink-0"
+                  >
+                    <Download className="w-3.5 h-3.5" /> PDF İndir / Önizle
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -442,7 +472,7 @@ export const StudentPortfolioShowcase: React.FC = () => {
       <Modal
         isOpen={isCertModalOpen}
         onClose={() => setIsCertModalOpen(false)}
-        title="Yeni Sertifika Ekle"
+        title="Yeni Sertifika & Belge Ekle"
         size="md"
       >
         <form onSubmit={handleAddCert} className="space-y-4 py-2">
@@ -467,12 +497,28 @@ export const StudentPortfolioShowcase: React.FC = () => {
             placeholder="ASELSAN-2026-XXXX"
           />
 
+          <div className="space-y-1">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+              Sertifika PDF Belgesi Yükle
+            </label>
+            <div className="p-4 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl text-center space-y-2 bg-slate-50 dark:bg-slate-800/40">
+              <Upload className="w-6 h-6 text-burgundy-700 mx-auto" />
+              <input
+                type="file"
+                accept=".pdf,.png,.jpg,.jpeg"
+                onChange={(e) => setNewCert({ ...newCert, pdfFile: e.target.files ? e.target.files[0] : null })}
+                className="text-xs text-slate-500 font-semibold w-full"
+              />
+              <p className="text-[10px] text-slate-400">PDF, PNG veya JPG belgesi seçiniz (Maks. 20MB).</p>
+            </div>
+          </div>
+
           <div className="flex justify-end gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
             <Button variant="secondary" onClick={() => setIsCertModalOpen(false)}>
               İptal
             </Button>
             <Button variant="primary" type="submit" leftIcon={<Send className="w-4 h-4" />} className="bg-burgundy-700 hover:bg-burgundy-800 font-bold">
-              Sertifikayı Kaydet
+              Sertifikayı Yükle & Kaydet
             </Button>
           </div>
         </form>

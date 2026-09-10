@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { CvBuilder } from '../features/student/CvBuilder';
 import { StudentApplications } from '../features/student/StudentApplications';
-import { StudentDocumentsVault } from '../features/student/StudentDocumentsVault';
 import { StudentInterviews } from '../features/student/StudentInterviews';
 import { StudentMessaging } from '../features/student/StudentMessaging';
 import { StudentCareerGoals } from '../features/student/StudentCareerGoals';
@@ -25,7 +24,6 @@ import {
   CheckCircle2,
   Calendar,
   Share2,
-  Folder,
   MessageSquare,
   Target,
   Code
@@ -34,15 +32,15 @@ import {
 export const StudentLayout: React.FC<{
   children?: React.ReactNode;
   onRoleChange?: (role: string, subTab?: string) => void;
-  initialTab?: 'dashboard' | 'cv' | 'documents' | 'applications' | 'bookmarks' | 'interviews' | 'messages' | 'goals' | 'portfolio';
+  initialTab?: 'dashboard' | 'cv' | 'applications' | 'bookmarks' | 'interviews' | 'messages' | 'goals' | 'portfolio';
 }> = ({ initialTab = 'dashboard' }) => {
-  const { user } = useAuth();
+  const { user, updateUserAvatar } = useAuth();
   const [activeTab, setActiveTab] = useState<
-    'dashboard' | 'cv' | 'documents' | 'applications' | 'bookmarks' | 'interviews' | 'messages' | 'goals' | 'portfolio'
-  >(initialTab);
+    'dashboard' | 'cv' | 'applications' | 'bookmarks' | 'interviews' | 'messages' | 'goals' | 'portfolio'
+  >(initialTab as any);
 
   React.useEffect(() => {
-    if (initialTab) setActiveTab(initialTab);
+    if (initialTab) setActiveTab(initialTab as any);
   }, [initialTab]);
 
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
@@ -77,8 +75,12 @@ export const StudentLayout: React.FC<{
                 <Edit className="w-4 h-4" />
               </button>
 
-              <div className="w-20 h-20 rounded-full bg-burgundy-700 text-white font-black text-2xl flex items-center justify-center mx-auto border-4 border-white dark:border-slate-800 shadow-md">
-                {user?.fullName.substring(0, 2).toUpperCase() || 'ET'}
+              <div className="w-20 h-20 rounded-full bg-burgundy-700 text-white font-black text-2xl flex items-center justify-center mx-auto border-4 border-white dark:border-slate-800 shadow-md overflow-hidden relative">
+                {user?.avatar ? (
+                  <img src={user.avatar} alt={user.fullName} className="w-full h-full object-cover" />
+                ) : (
+                  <span>{user?.fullName.substring(0, 2).toUpperCase() || 'ET'}</span>
+                )}
               </div>
 
               <div>
@@ -150,18 +152,6 @@ export const StudentLayout: React.FC<{
               >
                 <FileText className="w-4 h-4" />
                 <span>Profilim</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('documents')}
-                className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl transition-colors ${
-                  activeTab === 'documents'
-                    ? 'bg-burgundy-700 text-white font-bold'
-                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
-                }`}
-              >
-                <Folder className="w-4 h-4" />
-                <span>Belgelerim</span>
               </button>
 
               <button
@@ -265,7 +255,6 @@ export const StudentLayout: React.FC<{
             )}
 
             {activeTab === 'cv' && <CvBuilder />}
-            {activeTab === 'documents' && <StudentDocumentsVault />}
             {activeTab === 'applications' && <StudentApplications />}
             {activeTab === 'interviews' && <StudentInterviews />}
             {activeTab === 'messages' && <StudentMessaging />}
@@ -279,7 +268,54 @@ export const StudentLayout: React.FC<{
       <Modal isOpen={isEditProfileOpen} onClose={() => setIsEditProfileOpen(false)} title="Kişisel İletişim & Profil Düzenle">
         <form onSubmit={handleSavePersonalProfile} className="space-y-4">
           <div className="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl text-xs text-amber-800 dark:text-amber-200 border border-amber-200">
-            <strong>Bilgi:</strong> Öğrenci No, Fakülte, Bölüm ve GANO gibi akademik veriler OBS entegrasyonuyla kilitlidir. Yalnızca kişisel iletişim bilgilerinizi güncelleyebilirsiniz.
+            <strong>Bilgi:</strong> Öğrenci No, Fakülte, Bölüm ve GANO gibi akademik veriler OBS entegrasyonuyla kilitlidir. Profil fotoğrafınızı ve kişisel iletişim bilgilerinizi güncelleyebilirsiniz.
+          </div>
+
+          {/* Profil Fotoğrafı Alanı */}
+          <div className="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="w-12 h-12 rounded-full bg-burgundy-700 text-white flex items-center justify-center font-extrabold text-sm overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700">
+              {user?.avatar ? (
+                <img src={user.avatar} alt={user.fullName} className="w-full h-full object-cover" />
+              ) : (
+                <span>{user?.fullName.substring(0, 2).toUpperCase() || 'ET'}</span>
+              )}
+            </div>
+            <div className="flex-1">
+              <label className="block text-xs font-bold text-slate-900 dark:text-white mb-1">Profil Fotoğrafı</label>
+              <div className="flex items-center gap-2">
+                <label
+                  htmlFor="modal-avatar-input"
+                  className="px-3 py-1 bg-burgundy-700 hover:bg-burgundy-800 text-white font-bold text-xs rounded-lg cursor-pointer transition-colors"
+                >
+                  Fotoğraf Değiştir
+                </label>
+                <input
+                  id="modal-avatar-input"
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onload = (ev) => {
+                        if (ev.target?.result) updateUserAvatar(ev.target.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+                {user?.avatar && (
+                  <button
+                    type="button"
+                    onClick={() => updateUserAvatar('')}
+                    className="px-2.5 py-1 text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 rounded-lg text-xs font-bold border border-rose-200 dark:border-rose-900"
+                  >
+                    Kaldır
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
 
           <Input label="Telefon Numarası" value={personalProfile.phone} onChange={(e) => setPersonalProfile({ ...personalProfile, phone: e.target.value })} />

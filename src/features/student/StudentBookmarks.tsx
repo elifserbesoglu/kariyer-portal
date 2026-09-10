@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 
 export const StudentBookmarks: React.FC = () => {
-  const { submitStudentApplication } = useWorkflow();
+  const { submitStudentApplication, applications } = useWorkflow();
   const { user } = useAuth();
 
   const [savedJobs, setSavedJobs] = useState<JobItem[]>(MOCK_JOBS.slice(0, 3));
@@ -210,15 +210,43 @@ export const StudentBookmarks: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-row md:flex-col sm:items-end justify-between md:justify-center gap-2 pt-3 md:pt-0 border-t md:border-t-0 border-slate-100 dark:border-slate-800 shrink-0">
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={() => handleOpenApplyModal(job)}
-                  leftIcon={<Send className="w-3.5 h-3.5" />}
-                  className="font-bold text-xs"
-                >
-                  Hemen Başvur
-                </Button>
+                {(() => {
+                  const currentUserEmail = user?.email || 'emre.tunc@ogr.ktun.edu.tr';
+                  const currentStudentId = user?.studentNumber || '20120033001';
+                  const hasApplied = (applications || []).some(
+                    (app) =>
+                      app.jobId === job.id &&
+                      (app.studentEmail === currentUserEmail ||
+                       app.studentId === currentStudentId ||
+                       (user?.fullName && app.studentName === user.fullName))
+                  );
+
+                  if (hasApplied) {
+                    return (
+                      <Button
+                        disabled
+                        variant="secondary"
+                        size="sm"
+                        leftIcon={<CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
+                        className="font-extrabold text-xs bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 cursor-not-allowed opacity-100 shadow-xs"
+                      >
+                        Başvurdun
+                      </Button>
+                    );
+                  }
+
+                  return (
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      onClick={() => handleOpenApplyModal(job)}
+                      leftIcon={<Send className="w-3.5 h-3.5" />}
+                      className="font-bold text-xs"
+                    >
+                      Hemen Başvur
+                    </Button>
+                  );
+                })()}
 
                 <Button
                   variant="outline"

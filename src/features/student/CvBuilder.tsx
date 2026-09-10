@@ -3,7 +3,8 @@ import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { Alert } from '../../components/ui/Alert';
 import { Modal } from '../../components/ui/Modal';
-import { Download, Plus, GraduationCap, Briefcase, Code, Award, FileCheck, Upload, Heart } from 'lucide-react';
+import { Download, Plus, GraduationCap, Briefcase, Code, Award, FileCheck, Upload, Heart, Camera } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 export const DRIVER_LICENSES = [
   'Yok',
@@ -73,6 +74,7 @@ const DEFAULT_CV: CvData = {
 };
 
 export const CvBuilder: React.FC = () => {
+  const { user, updateUserAvatar } = useAuth();
   const [cv, setCv] = useState<CvData>(() => {
     const saved = localStorage.getItem('ktun_student_cv_data');
     return saved ? JSON.parse(saved) : DEFAULT_CV;
@@ -82,6 +84,7 @@ export const CvBuilder: React.FC = () => {
   const [downloadMsg, setDownloadMsg] = useState(false);
   const [isExpModalOpen, setIsExpModalOpen] = useState(false);
   const [isProjModalOpen, setIsProjModalOpen] = useState(false);
+  const [avatarError, setAvatarError] = useState<string | null>(null);
 
   const [newExp, setNewExp] = useState({ company: '', position: '', duration: '', description: '' });
   const [newProj, setNewProj] = useState({ title: '', tech: '', link: '', description: '' });
@@ -89,6 +92,27 @@ export const CvBuilder: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('ktun_student_cv_data', JSON.stringify(cv));
   }, [cv]);
+
+  const handleProfilePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      setAvatarError('Lütfen geçerli bir görsel dosyası (JPG, PNG vb.) seçiniz.');
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setAvatarError('Fotoğraf boyutu en fazla 5MB olabilir.');
+      return;
+    }
+    setAvatarError(null);
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      if (event.target?.result) {
+        updateUserAvatar(event.target.result as string);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleAddSkill = () => {
     if (newSkill.trim() && !cv.skills.includes(newSkill.trim())) {
@@ -203,7 +227,7 @@ export const CvBuilder: React.FC = () => {
             <span>PROFİLİM</span>
           </h2>
           <p className="text-xs text-slate-500">
-            Kişisel bilgilerinizi, CV belgenizi, eğitim ve iş deneyimlerinizi yönetin.
+            Kişisel bilgilerinizi, profil fotoğrafınızı, CV belgenizi, eğitim ve iş deneyimlerinizi yönetin.
           </p>
         </div>
 
@@ -245,6 +269,71 @@ export const CvBuilder: React.FC = () => {
           Yazdırılabilir biçimlendirilmiş ATS PDF önizleme penceresi açılmıştır. Otomatik yazdırma diyaloğu başlatıldı.
         </Alert>
       )}
+
+      {/* Profil Fotoğrafı Yükleme Alanı */}
+      <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-center gap-6">
+        <div className="relative group shrink-0">
+          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-burgundy-700 text-white flex items-center justify-center font-extrabold text-2xl shadow-md overflow-hidden border-4 border-white dark:border-slate-800">
+            {user?.avatar ? (
+              <img src={user.avatar} alt={user?.fullName || 'Profil Fotoğrafı'} className="w-full h-full object-cover" />
+            ) : (
+              <span>{user ? user.fullName.substring(0, 2).toUpperCase() : 'ÖG'}</span>
+            )}
+          </div>
+          <label
+            htmlFor="profile-picture-input-cv"
+            className="absolute bottom-0 right-0 p-2 bg-burgundy-700 hover:bg-burgundy-800 text-white rounded-full shadow-lg transition-colors cursor-pointer border-2 border-white dark:border-slate-800"
+            title="Profil Fotoğrafı Yükle / Değiştir"
+          >
+            <Camera className="w-4 h-4" />
+          </label>
+          <input
+            id="profile-picture-input-cv"
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={handleProfilePictureChange}
+          />
+        </div>
+
+        <div className="flex-1 text-center sm:text-left space-y-1.5">
+          <div className="flex items-center justify-center sm:justify-start gap-2">
+            <h3 className="text-base font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">
+              Profil Fotoğrafı
+            </h3>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-burgundy-50 dark:bg-burgundy-950 text-burgundy-700 dark:text-burgundy-300 border border-burgundy-200 dark:border-burgundy-900">
+              {user?.avatar ? 'Fotoğraf Yüklendi' : 'Fotoğraf Yok'}
+            </span>
+          </div>
+          <p className="text-xs text-slate-500 max-w-xl">
+            Vesikalık veya profesyonel profil fotoğrafı yükleyin. Yüklediğiniz fotoğraf özgeçmişinizde, sistem profilinizde ve işverenlerin aday listelerinde görüntülenecektir.
+          </p>
+
+          {avatarError && (
+            <p className="text-xs font-bold text-rose-600 dark:text-rose-400">{avatarError}</p>
+          )}
+
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1">
+            <button
+              type="button"
+              onClick={() => document.getElementById('profile-picture-input-cv')?.click()}
+              className="px-3.5 py-2 text-xs font-bold text-white bg-burgundy-700 hover:bg-burgundy-800 rounded-xl transition-colors flex items-center gap-2 shadow-xs"
+            >
+              <Camera className="w-4 h-4" />
+              <span>{user?.avatar ? 'Fotoğrafı Değiştir' : 'Fotoğraf Yükle'}</span>
+            </button>
+            {user?.avatar && (
+              <button
+                type="button"
+                onClick={() => updateUserAvatar('')}
+                className="px-3.5 py-2 text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 rounded-xl border border-rose-200 dark:border-rose-900 transition-colors"
+              >
+                Fotoğrafı Kaldır
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* CV'ni Yükle Section */}
       <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
@@ -522,76 +611,7 @@ export const CvBuilder: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-burgundy-700" />
-            <span>Eğitim Bilgileri</span>
-          </h3>
-          <span className="text-[11px] font-bold text-slate-400">OBS Doğrulanmış</span>
-        </div>
 
-        {cv.education.map((edu) => (
-          <div key={edu.id} className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl space-y-1 text-xs">
-            <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white">
-              <span>{edu.school}</span>
-              <span className="text-burgundy-700 font-extrabold">{edu.years}</span>
-            </div>
-            <p className="text-slate-600 dark:text-slate-300">{edu.department}</p>
-            <p className="text-[11px] text-slate-500">GANO: <strong className="text-slate-800 dark:text-slate-200">{edu.gpa} / 4.00</strong></p>
-          </div>
-        ))}
-      </div>
-
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase flex items-center gap-2">
-            <Briefcase className="w-4 h-4 text-burgundy-700" />
-            <span>İş & Staj Deneyimleri</span>
-          </h3>
-          <Button variant="outline" size="sm" onClick={() => setIsExpModalOpen(true)} leftIcon={<Plus className="w-3.5 h-3.5" />}>
-            Yeni Deneyim Ekle
-          </Button>
-        </div>
-
-        {cv.experience.map((exp) => (
-          <div key={exp.id} className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl space-y-1.5 text-xs border border-slate-100 dark:border-slate-800">
-            <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white">
-              <span className="text-sm">{exp.position}</span>
-              <span className="text-slate-500 font-medium text-[11px]">{exp.duration}</span>
-            </div>
-            <p className="font-semibold text-burgundy-700">{exp.company}</p>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed pt-1">{exp.description}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase flex items-center gap-2">
-            <Code className="w-4 h-4 text-burgundy-700" />
-            <span>Projeler & Çalışmalar</span>
-          </h3>
-          <Button variant="outline" size="sm" onClick={() => setIsProjModalOpen(true)} leftIcon={<Plus className="w-3.5 h-3.5" />}>
-            Yeni Proje Ekle
-          </Button>
-        </div>
-
-        {cv.projects.map((proj) => (
-          <div key={proj.id} className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl space-y-1.5 text-xs">
-            <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white">
-              <span>{proj.title}</span>
-              <a href={proj.link} target="_blank" rel="noreferrer" className="text-burgundy-700 hover:underline text-[11px]">
-                {proj.link}
-              </a>
-            </div>
-            <span className="inline-block bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-[10px] px-2 py-0.5 rounded font-mono">
-              {proj.tech}
-            </span>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed pt-1">{proj.description}</p>
-          </div>
-        ))}
-      </div>
 
       <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
         <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">

@@ -36,12 +36,26 @@ import { getCombinedJobListings } from '../../utils/jobMapper';
 export const JobDetailPage: React.FC = () => {
   const { routeParams, navigate, showLoginRequiredModal } = usePublicRouter();
   const { user, isAuthenticated } = useAuth();
-  const { submitStudentApplication, jobs: workflowJobs } = useWorkflow();
+  const { submitStudentApplication, jobs: workflowJobs, applications } = useWorkflow();
 
   const jobId = routeParams.id || 'job-1';
   const allListings = getCombinedJobListings(workflowJobs);
   const job = allListings.find((j) => j.id === jobId) || allListings[0];
   const company = MOCK_COMPANIES.find((c) => c.id === job.companyId);
+
+  const currentUserEmail = user?.email || 'emre.tunc@ogr.ktun.edu.tr';
+  const currentStudentId = user?.studentNumber || '20120033001';
+
+  const hasApplied = React.useMemo(() => {
+    if (!applications || applications.length === 0 || !job) return false;
+    return applications.some(
+      (app) =>
+        app.jobId === job.id &&
+        (app.studentEmail === currentUserEmail ||
+         app.studentId === currentStudentId ||
+         (user?.fullName && app.studentName === user.fullName))
+    );
+  }, [applications, job, currentUserEmail, currentStudentId, user]);
 
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [customAnswer, setCustomAnswer] = useState('');
@@ -189,15 +203,27 @@ export const JobDetailPage: React.FC = () => {
                 >
                   {isSaved ? 'Kaydedildi' : 'Kaydet'}
                 </Button>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  leftIcon={<Send className="w-4 h-4" />}
-                  onClick={handleApplyButtonClick}
-                  className="bg-burgundy-700 hover:bg-burgundy-800 font-extrabold shadow-md"
-                >
-                  Hemen Başvur
-                </Button>
+                {hasApplied ? (
+                  <Button
+                    disabled
+                    variant="secondary"
+                    size="lg"
+                    leftIcon={<CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
+                    className="bg-emerald-50 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-extrabold cursor-not-allowed opacity-100 shadow-xs"
+                  >
+                    Başvurdun
+                  </Button>
+                ) : (
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    leftIcon={<Send className="w-4 h-4" />}
+                    onClick={handleApplyButtonClick}
+                    className="bg-burgundy-700 hover:bg-burgundy-800 font-extrabold shadow-md"
+                  >
+                    Hemen Başvur
+                  </Button>
+                )}
               </div>
             )}
 

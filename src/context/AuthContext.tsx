@@ -17,6 +17,7 @@ interface AuthContextType extends AuthState {
   resetPassword: (token: string, newPassword: string) => Promise<{ success: boolean; message: string }>;
   verifyEmail: (token: string) => Promise<{ success: boolean; message: string }>;
   refreshTokens: () => Promise<boolean>;
+  updateUserAvatar: (avatarUrl: string) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -217,6 +218,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return true;
   };
 
+  const updateUserAvatar = (avatarUrl: string) => {
+    if (!user) return;
+    const updated = { ...user, avatar: avatarUrl };
+    setUser(updated);
+    try {
+      localStorage.setItem('ktun_auth_user', JSON.stringify(updated));
+    } catch (e) {
+      console.warn('LocalStorage error on avatar update', e);
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -232,6 +244,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         resetPassword,
         verifyEmail,
         refreshTokens,
+        updateUserAvatar,
       }}
     >
       {children}

@@ -213,6 +213,16 @@ export const Header: React.FC<HeaderProps> = ({ onRoleChange, currentView = 'pub
     ];
   }
 
+  const getRoleLabel = (role?: string) => {
+    if (!role) return 'Kullanıcı Paneli';
+    const r = role.toLowerCase();
+    if (r === 'student') return 'Öğrenci';
+    if (r === 'employer') return 'İşveren';
+    if (r === 'careercenter' || r === 'career-center') return 'Kariyer Merkezi';
+    if (r === 'alumni') return 'Mezun';
+    return role;
+  };
+
   return (
     <header className="w-full z-40 sticky top-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors">
       {/* Top Banner Bar */}
@@ -366,7 +376,7 @@ export const Header: React.FC<HeaderProps> = ({ onRoleChange, currentView = 'pub
                     {isAuthenticated ? user?.fullName : 'Giriş Yap'}
                   </span>
                   <span className="text-[10px] text-slate-500 font-medium leading-tight">
-                    {isAuthenticated ? user?.role : 'Kullanıcı Paneli'}
+                    {isAuthenticated ? getRoleLabel(user?.role) : 'Kullanıcı Paneli'}
                   </span>
                 </div>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
@@ -398,7 +408,7 @@ export const Header: React.FC<HeaderProps> = ({ onRoleChange, currentView = 'pub
               className="w-full text-left p-3 rounded-xl bg-burgundy-700 text-white font-bold text-sm flex items-center gap-2"
             >
               <LayoutDashboard className="w-4 h-4" />
-              <span>Rol Panelime Geç ({user?.role === 'Student' ? 'Öğrenci' : user?.role === 'Employer' ? 'İşveren' : user?.role === 'CareerCenter' ? 'Kariyer Merkezi' : user?.role === 'Alumni' ? 'Mezun' : user?.role})</span>
+              <span>Rol Panelime Geç ({getRoleLabel(user?.role)})</span>
             </button>
           )}
 
