@@ -6,7 +6,6 @@ export interface UserDocumentDto {
   fileName: string;
   documentType: 'CV' | 'CERTIFICATE' | 'DIPLOMA' | 'PORTFOLIO';
   fileSizeBytes: number;
-  versionString: string;
   storageProvider: string;
   virusScanStatus: 'CLEAN' | 'INFECTED' | 'PENDING';
   uploadedAt: string;
@@ -31,11 +30,10 @@ export const fileManagementService = {
         fileName: 'Emre_Tunc_ATS_CV_2026.pdf',
         documentType: 'CV',
         fileSizeBytes: 1572864,
-        versionString: 'v1.1',
         storageProvider: 'AWS S3 Bucket',
         virusScanStatus: 'CLEAN',
         uploadedAt: '03.08.2026 11:20',
-        downloadUrl: 'https://ktun-career-docs.s3.eu-central-1.amazonaws.com/Emre_Tunc_CV_v1.1.pdf',
+        downloadUrl: 'https://ktun-career-docs.s3.eu-central-1.amazonaws.com/Emre_Tunc_CV.pdf',
       },
       {
         id: 'doc-2',
@@ -43,7 +41,6 @@ export const fileManagementService = {
         fileName: 'ASELSAN_Aday_Muhendis_Sertifikasi.pdf',
         documentType: 'CERTIFICATE',
         fileSizeBytes: 2097152,
-        versionString: 'v1.0',
         storageProvider: 'Azure Blob Storage',
         virusScanStatus: 'CLEAN',
         uploadedAt: '25.07.2026 09:45',

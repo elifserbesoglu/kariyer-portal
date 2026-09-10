@@ -34,7 +34,6 @@ export const StudentDocumentsVault: React.FC = () => {
         fileName: newDoc.file ? newDoc.file.name : `${newDoc.title.replace(/\s+/g, '_')}.pdf`,
         documentType: newDoc.category as any,
         fileSizeBytes: newDoc.file ? newDoc.file.size : 1572864,
-        versionString: 'v1.0',
         storageProvider: 'AWS S3 Bucket',
         virusScanStatus: 'CLEAN',
         uploadedAt: new Date().toLocaleDateString('tr-TR'),
@@ -113,9 +112,6 @@ export const StudentDocumentsVault: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Badge variant="primary" size="sm">{doc.documentType}</Badge>
-                  <span className="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-200 font-black text-[10px]">
-                    {doc.versionString}
-                  </span>
                 </div>
               </div>
 
@@ -151,7 +147,7 @@ export const StudentDocumentsVault: React.FC = () => {
             required
             value={newDoc.title}
             onChange={(e) => setNewDoc({ ...newDoc, title: e.target.value })}
-            placeholder="Örn: ASELSAN Aday Mühendis Sertifikası v2.0"
+            placeholder="Örn: ASELSAN Aday Mühendis Sertifikası"
           />
 
           <div>
